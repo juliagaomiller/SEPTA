@@ -8,22 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		195BF3CE1E487D3200699E31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195BF3CD1E487D3200699E31 /* AppDelegate.swift */; };
-		195BF3D01E487D3200699E31 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195BF3CF1E487D3200699E31 /* ViewController.swift */; };
 		195BF3D31E487D3200699E31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 195BF3D11E487D3200699E31 /* Main.storyboard */; };
 		195BF3D61E487D3200699E31 /* SEPTA.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 195BF3D41E487D3200699E31 /* SEPTA.xcdatamodeld */; };
 		195BF3D81E487D3200699E31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 195BF3D71E487D3200699E31 /* Assets.xcassets */; };
 		195BF3DB1E487D3200699E31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 195BF3D91E487D3200699E31 /* LaunchScreen.storyboard */; };
+		195BF3E31E487E3B00699E31 /* SchedulesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195BF3E21E487E3B00699E31 /* SchedulesVC.swift */; };
+		195BF3E71E487EA600699E31 /* Schedules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195BF3E61E487EA600699E31 /* Schedules.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		195BF3CA1E487D3200699E31 /* SEPTA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SEPTA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		195BF3CD1E487D3200699E31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		195BF3CF1E487D3200699E31 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		195BF3D21E487D3200699E31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		195BF3D51E487D3200699E31 /* SEPTA.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SEPTA.xcdatamodel; sourceTree = "<group>"; };
 		195BF3D71E487D3200699E31 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		195BF3DA1E487D3200699E31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		195BF3DC1E487D3200699E31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		195BF3E21E487E3B00699E31 /* SchedulesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulesVC.swift; sourceTree = "<group>"; };
+		195BF3E61E487EA600699E31 /* Schedules.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Schedules.swift; path = ../Schedules.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,8 +59,9 @@
 			isa = PBXGroup;
 			children = (
 				195BF3CD1E487D3200699E31 /* AppDelegate.swift */,
-				195BF3CF1E487D3200699E31 /* ViewController.swift */,
 				195BF3D11E487D3200699E31 /* Main.storyboard */,
+				195BF3E21E487E3B00699E31 /* SchedulesVC.swift */,
+				195BF3E61E487EA600699E31 /* Schedules.swift */,
 				195BF3D71E487D3200699E31 /* Assets.xcassets */,
 				195BF3D91E487D3200699E31 /* LaunchScreen.storyboard */,
 				195BF3DC1E487D3200699E31 /* Info.plist */,
@@ -139,9 +142,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				195BF3D01E487D3200699E31 /* ViewController.swift in Sources */,
+				195BF3E31E487E3B00699E31 /* SchedulesVC.swift in Sources */,
 				195BF3CE1E487D3200699E31 /* AppDelegate.swift in Sources */,
 				195BF3D61E487D3200699E31 /* SEPTA.xcdatamodeld in Sources */,
+				195BF3E71E487EA600699E31 /* Schedules.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
