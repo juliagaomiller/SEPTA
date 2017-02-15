@@ -14,6 +14,9 @@
 		195BF3DB1E487D3200699E31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 195BF3D91E487D3200699E31 /* LaunchScreen.storyboard */; };
 		195BF3E31E487E3B00699E31 /* SchedulesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195BF3E21E487E3B00699E31 /* SchedulesVC.swift */; };
 		195BF3E71E487EA600699E31 /* Schedules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195BF3E61E487EA600699E31 /* Schedules.swift */; };
+		A32624C61E53937B009DB121 /* StationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32624C51E53937B009DB121 /* StationCell.swift */; };
+		A32624C81E539383009DB121 /* ScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32624C71E539383009DB121 /* ScheduleCell.swift */; };
+		A32624CD1E53B029009DB121 /* TimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32624CC1E53B029009DB121 /* TimeCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		195BF3DC1E487D3200699E31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		195BF3E21E487E3B00699E31 /* SchedulesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulesVC.swift; sourceTree = "<group>"; };
 		195BF3E61E487EA600699E31 /* Schedules.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Schedules.swift; path = ../Schedules.swift; sourceTree = "<group>"; };
+		A32624C51E53937B009DB121 /* StationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationCell.swift; sourceTree = "<group>"; };
+		A32624C71E539383009DB121 /* ScheduleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleCell.swift; sourceTree = "<group>"; };
+		A32624CC1E53B029009DB121 /* TimeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,15 +65,42 @@
 			isa = PBXGroup;
 			children = (
 				195BF3CD1E487D3200699E31 /* AppDelegate.swift */,
-				195BF3D11E487D3200699E31 /* Main.storyboard */,
-				195BF3E21E487E3B00699E31 /* SchedulesVC.swift */,
-				195BF3E61E487EA600699E31 /* Schedules.swift */,
-				195BF3D71E487D3200699E31 /* Assets.xcassets */,
 				195BF3D91E487D3200699E31 /* LaunchScreen.storyboard */,
+				A32624C91E539389009DB121 /* model */,
+				A32624CA1E539391009DB121 /* view */,
+				A32624CB1E5393A0009DB121 /* controller */,
 				195BF3DC1E487D3200699E31 /* Info.plist */,
 				195BF3D41E487D3200699E31 /* SEPTA.xcdatamodeld */,
 			);
 			path = SEPTA;
+			sourceTree = "<group>";
+		};
+		A32624C91E539389009DB121 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				195BF3E61E487EA600699E31 /* Schedules.swift */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		A32624CA1E539391009DB121 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				195BF3D71E487D3200699E31 /* Assets.xcassets */,
+				195BF3D11E487D3200699E31 /* Main.storyboard */,
+				A32624CC1E53B029009DB121 /* TimeCell.swift */,
+				A32624C51E53937B009DB121 /* StationCell.swift */,
+				A32624C71E539383009DB121 /* ScheduleCell.swift */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		A32624CB1E5393A0009DB121 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				195BF3E21E487E3B00699E31 /* SchedulesVC.swift */,
+			);
+			name = controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,9 +175,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A32624C61E53937B009DB121 /* StationCell.swift in Sources */,
+				A32624CD1E53B029009DB121 /* TimeCell.swift in Sources */,
 				195BF3E31E487E3B00699E31 /* SchedulesVC.swift in Sources */,
 				195BF3CE1E487D3200699E31 /* AppDelegate.swift in Sources */,
 				195BF3D61E487D3200699E31 /* SEPTA.xcdatamodeld in Sources */,
+				A32624C81E539383009DB121 /* ScheduleCell.swift in Sources */,
 				195BF3E71E487EA600699E31 /* Schedules.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -305,6 +341,7 @@
 				195BF3E11E487D3200699E31 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
