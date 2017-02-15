@@ -13,7 +13,72 @@ class SchedulesVC: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
+    var scheduleCells = [ScheduleCell]()
+    var lines = [[String:Any]]()
+    
     override func viewDidLoad() {
-        //
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        loadRailLines()
     }
+    
+    @IBAction func next(){
+//        var stations = [String]()
+        for cell in scheduleCells {
+            if cell.accessoryType == .checkmark {
+//                selectedCells.append(cell)
+            }
+        }
+        
+    }
+    
+    func getSchedule(atIndex index: Int){
+        
+    }
+    
+    func loadRailLines(){
+        if let path = Bundle.main.path(forResource: "septa", ofType: "json") {
+            if let json = try? Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe){
+                if let data = try? JSONSerialization.jsonObject(with: json)
+                {
+                    if let all = data as? [String:Any] {
+                        lines = all["lines"] as! [[String:Any]]
+                        for line in lines {
+                            let name = line["name"] as! String
+                            let cell = tableView.dequeueReusableCell(withIdentifier: "ScheduleCell") as! ScheduleCell
+                            cell.scheduleLabel.text = name
+                            scheduleCells.append(cell)
+                        }
+
+                    }
+                }
+                
+            }
+        }
+    }
+    
+}
+
+extension SchedulesVC: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return scheduleCells.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return scheduleCells[indexPath.row]
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)!
+        if cell.accessoryType == .none {
+            cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    
 }

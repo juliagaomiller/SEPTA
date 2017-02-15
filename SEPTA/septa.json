@@ -1,0 +1,867 @@
+{
+  "lines": [
+    {"name" : "Airport",
+      "directions": [
+        {
+          "name" : "To x",
+          "stations" : [
+            {
+              "name": "",
+              "weekday":[
+                ""
+              ],
+              "saturday":[
+                ""
+              ],
+              "sunday":[
+                ""
+              ]
+            }
+          ]
+        },
+        {
+          "name" : "",
+          "stations" : [
+            {
+              "name": "",
+              "weekday": [
+                ""
+              ],
+              "saturday": [
+                ""
+              ],
+              "sunday": [
+                ""
+              ]
+            },
+            {
+              "name": "",
+              "weekday": [
+                ""
+              ],
+              "saturday": [
+                ""
+              ],
+              "sunday": [
+                ""
+              ]
+            },
+            {
+              "name": "",
+              "weekday": [
+                ""
+              ],
+              "saturday": [
+                ""
+              ],
+              "sunday": [
+                ""
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {"name" : "Chestnut Hill East",
+      "directions": [
+        {
+          "name" : "To 30th Street",
+          "stations" : [
+            {
+              "name": "",
+              "weekday":[
+                ""
+              ],
+              "saturday":[
+                ""
+              ],
+              "sunday":[
+                ""
+              ]
+            }
+          ]
+        },
+        {
+          "name" : "To Chestnut Hill East",
+          "stations" : [
+            {
+              "name": "30th Street",
+              "weekday": [
+                ""
+              ],
+              "saturday": [
+                ""
+              ],
+              "sunday": [
+                ""
+              ]
+            },
+            {
+              "name": "Suburban",
+              "weekday": [
+                ""
+              ],
+              "saturday": [
+                ""
+              ],
+              "sunday": [
+                ""
+              ]
+            },
+            {
+              "name": "Jefferson",
+              "weekday": [
+                "6:52 AM",
+                "7:46 AM",
+                "8:39 AM",
+                "9:28 AM",
+                "10:38 AM",
+                "11:43 AM",
+                "12:45 PM",
+                "1:45 PM",
+                "2:42 PM",
+                "3:31 PM",
+                "4:23 PM",
+                "4:46 PM",
+                "5:14 PM",
+                "5:41 PM",
+                "6:03 PM",
+                "6:24 PM",
+                "6:56 PM",
+                "7:31 PM",
+                "8:39 PM",
+                "9:32 PM",
+                "10:31 PM",
+                "11:45 PM",
+                "1:16 PM",
+              ],
+              "saturday": [
+                ""
+              ],
+              "sunday": [
+                ""
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {"name": "Chestnut Hill West",
+      "directions": [
+        {
+          "name": "To Temple University",
+          "stations": [
+            {
+              "name": "Chestnut Hill West",
+              "weekday": [
+                "5:55 AM",
+                "6:28 AM",
+                "6:55 AM",
+                "7:32 AM",
+                "8:08 AM",
+                "8:40 AM",
+                "9:06 AM",
+                "9:50 AM",
+                "10:48 AM",
+                "11:45 AM",
+                "12:54 AM",
+                "1:53 PM",
+                "2:43 PM",
+                "3:53 PM",
+                "4:52 PM",
+                "5:10 PM",
+                "5:47 PM",
+                "6:13 PM",
+                "7:03 PM",
+                "7:43 PM",
+                "8:05 PM",
+                "8:46 PM",
+                "9:49 PM",
+                "10:49 PM",
+              ],
+              "saturday": [
+                ""
+              ],
+              "sunday": [
+                ""
+              ]
+            },
+            {
+              "name": "Highland",
+              "weekday": [
+                "10:00 AM"
+              ],
+              "saturday": [
+                ""
+              ],
+              "sunday": [
+                ""
+              ]
+            }
+          ]
+        },
+        {
+          "name": "To Chestnut Hill West",
+          "stations": [
+            {
+              "name" : "Temple University",
+              "weekday" : [
+               ""
+              ],
+              "saturday" : [
+                ""
+              ],
+              "sunday" : [
+                ""
+              ]
+            },
+            {
+              "name" : "Jefferson",
+              "weekday" : [
+               ""
+              ],
+              "saturday" : [
+                ""
+              ],
+              "sunday" : [
+                ""
+              ]
+            },
+            {
+              "name" : "Suburban",
+              "weekday" : [
+               ""
+              ],
+              "saturday" : [
+                ""
+              ],
+              "sunday" : [
+                ""
+              ]
+            },
+          ]
+        }
+      ]
+    },
+    {"name" : "Cynwyd",
+      "directions": [
+        {
+          "name" : "To x",
+          "stations" : [
+            {
+              "name": "",
+              "weekday":[
+                ""
+              ],
+              "saturday":[
+                ""
+              ],
+              "sunday":[
+                ""
+              ]
+            }
+          ]
+        },
+        {
+          "name" : "",
+          "stations" : [
+            {
+              "name": "",
+              "weekday": [
+                ""
+              ],
+              "saturday": [
+                ""
+              ],
+              "sunday": [
+                ""
+              ]
+            },
+            {
+              "name": "",
+              "weekday": [
+                ""
+              ],
+              "saturday": [
+                ""
+              ],
+              "sunday": [
+                ""
+              ]
+            },
+            {
+              "name": "",
+              "weekday": [
+                ""
+              ],
+              "saturday": [
+                ""
+              ],
+              "sunday": [
+                ""
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {"name" : "Fox Chase",
+      "directions": [
+        {
+          "name" : "To x",
+          "stations" : [
+            {
+              "name": "",
+              "weekday":[
+                ""
+              ],
+              "saturday":[
+                ""
+              ],
+              "sunday":[
+                ""
+              ]
+            }
+          ]
+        },
+        {
+          "name" : "",
+          "stations" : [
+            {
+              "name": "",
+              "weekday": [
+                ""
+              ],
+              "saturday": [
+                ""
+              ],
+              "sunday": [
+                ""
+              ]
+            },
+            {
+              "name": "",
+              "weekday": [
+                ""
+              ],
+              "saturday": [
+                ""
+              ],
+              "sunday": [
+                ""
+              ]
+            },
+            {
+              "name": "",
+              "weekday": [
+                ""
+              ],
+              "saturday": [
+                ""
+              ],
+              "sunday": [
+                ""
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {"name" : "Lansdale/Doylestown",
+      "directions": [
+        {
+          "name" : "To x",
+          "stations" : [
+            {
+              "name": "",
+              "weekday":[
+                ""
+              ],
+              "saturday":[
+                ""
+              ],
+              "sunday":[
+                ""
+              ]
+            }
+          ]
+        },
+        {
+          "name" : "",
+          "stations" : [
+            {
+              "name": "",
+              "weekday": [
+                ""
+              ],
+              "saturday": [
+                ""
+              ],
+              "sunday": [
+                ""
+              ]
+            },
+            {
+              "name": "",
+              "weekday": [
+                ""
+              ],
+              "saturday": [
+                ""
+              ],
+              "sunday": [
+                ""
+              ]
+            },
+            {
+              "name": "",
+              "weekday": [
+                ""
+              ],
+              "saturday": [
+                ""
+              ],
+              "sunday": [
+                ""
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {"name" : "Manayunk/Norristown",
+      "directions": [
+        {
+          "name" : "To x",
+          "stations" : [
+            {
+              "name": "",
+              "weekday":[
+                ""
+              ],
+              "saturday":[
+                ""
+              ],
+              "sunday":[
+                ""
+              ]
+            }
+          ]
+        },
+        {
+          "name" : "",
+          "stations" : [
+            {
+              "name": "",
+              "weekday": [
+                ""
+              ],
+              "saturday": [
+                ""
+              ],
+              "sunday": [
+                ""
+              ]
+            },
+            {
+              "name": "",
+              "weekday": [
+                ""
+              ],
+              "saturday": [
+                ""
+              ],
+              "sunday": [
+                ""
+              ]
+            },
+            {
+              "name": "",
+              "weekday": [
+                ""
+              ],
+              "saturday": [
+                ""
+              ],
+              "sunday": [
+                ""
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {"name" : "Media/Elwyn",
+      "directions": [
+        {
+          "name" : "To x",
+          "stations" : [
+            {
+              "name": "",
+              "weekday":[
+                ""
+              ],
+              "saturday":[
+                ""
+              ],
+              "sunday":[
+                ""
+              ]
+            }
+          ]
+        },
+        {
+          "name" : "",
+          "stations" : [
+            {
+              "name": "",
+              "weekday": [
+                ""
+              ],
+              "saturday": [
+                ""
+              ],
+              "sunday": [
+                ""
+              ]
+            },
+            {
+              "name": "",
+              "weekday": [
+                ""
+              ],
+              "saturday": [
+                ""
+              ],
+              "sunday": [
+                ""
+              ]
+            },
+            {
+              "name": "",
+              "weekday": [
+                ""
+              ],
+              "saturday": [
+                ""
+              ],
+              "sunday": [
+                ""
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {"name" : "Paoli/Thorndale",
+      "directions": [
+        {
+          "name" : "To x",
+          "stations" : [
+            {
+              "name": "",
+              "weekday":[
+                ""
+              ],
+              "saturday":[
+                ""
+              ],
+              "sunday":[
+                ""
+              ]
+            }
+          ]
+        },
+        {
+          "name" : "",
+          "stations" : [
+            {
+              "name": "",
+              "weekday": [
+                ""
+              ],
+              "saturday": [
+                ""
+              ],
+              "sunday": [
+                ""
+              ]
+            },
+            {
+              "name": "",
+              "weekday": [
+                ""
+              ],
+              "saturday": [
+                ""
+              ],
+              "sunday": [
+                ""
+              ]
+            },
+            {
+              "name": "",
+              "weekday": [
+                ""
+              ],
+              "saturday": [
+                ""
+              ],
+              "sunday": [
+                ""
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {"name" : "Trenton",
+      "directions": [
+        {
+          "name" : "To x",
+          "stations" : [
+            {
+              "name": "",
+              "weekday":[
+                ""
+              ],
+              "saturday":[
+                ""
+              ],
+              "sunday":[
+                ""
+              ]
+            }
+          ]
+        },
+        {
+          "name" : "",
+          "stations" : [
+            {
+              "name": "",
+              "weekday": [
+                ""
+              ],
+              "saturday": [
+                ""
+              ],
+              "sunday": [
+                ""
+              ]
+            },
+            {
+              "name": "",
+              "weekday": [
+                ""
+              ],
+              "saturday": [
+                ""
+              ],
+              "sunday": [
+                ""
+              ]
+            },
+            {
+              "name": "",
+              "weekday": [
+                ""
+              ],
+              "saturday": [
+                ""
+              ],
+              "sunday": [
+                ""
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {"name" : "Warminster",
+      "directions": [
+        {
+          "name" : "To x",
+          "stations" : [
+            {
+              "name": "",
+              "weekday":[
+                ""
+              ],
+              "saturday":[
+                ""
+              ],
+              "sunday":[
+                ""
+              ]
+            }
+          ]
+        },
+        {
+          "name" : "",
+          "stations" : [
+            {
+              "name": "",
+              "weekday": [
+                ""
+              ],
+              "saturday": [
+                ""
+              ],
+              "sunday": [
+                ""
+              ]
+            },
+            {
+              "name": "",
+              "weekday": [
+                ""
+              ],
+              "saturday": [
+                ""
+              ],
+              "sunday": [
+                ""
+              ]
+            },
+            {
+              "name": "",
+              "weekday": [
+                ""
+              ],
+              "saturday": [
+                ""
+              ],
+              "sunday": [
+                ""
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {"name" : "West Trenton",
+      "directions": [
+        {
+          "name" : "To x",
+          "stations" : [
+            {
+              "name": "",
+              "weekday":[
+                ""
+              ],
+              "saturday":[
+                ""
+              ],
+              "sunday":[
+                ""
+              ]
+            }
+          ]
+        },
+        {
+          "name" : "",
+          "stations" : [
+            {
+              "name": "",
+              "weekday": [
+                ""
+              ],
+              "saturday": [
+                ""
+              ],
+              "sunday": [
+                ""
+              ]
+            },
+            {
+              "name": "",
+              "weekday": [
+                ""
+              ],
+              "saturday": [
+                ""
+              ],
+              "sunday": [
+                ""
+              ]
+            },
+            {
+              "name": "",
+              "weekday": [
+                ""
+              ],
+              "saturday": [
+                ""
+              ],
+              "sunday": [
+                ""
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {"name" : "Wilmington/Neward",
+      "directions": [
+        {
+          "name" : "To x",
+          "stations" : [
+            {
+              "name": "",
+              "weekday":[
+                ""
+              ],
+              "saturday":[
+                ""
+              ],
+              "sunday":[
+                ""
+              ]
+            }
+          ]
+        },
+        {
+          "name" : "",
+          "stations" : [
+            {
+              "name": "",
+              "weekday": [
+                ""
+              ],
+              "saturday": [
+                ""
+              ],
+              "sunday": [
+                ""
+              ]
+            },
+            {
+              "name": "",
+              "weekday": [
+                ""
+              ],
+              "saturday": [
+                ""
+              ],
+              "sunday": [
+                ""
+              ]
+            },
+            {
+              "name": "",
+              "weekday": [
+                ""
+              ],
+              "saturday": [
+                ""
+              ],
+              "sunday": [
+                ""
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
