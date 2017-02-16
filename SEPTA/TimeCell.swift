@@ -10,6 +10,9 @@ import UIKit
 
 class TimeCell: UITableViewCell {
     
-    @IBOutlet var timeLabel: UILabel!
+    @IBOutlet var departureTimeLabel: UILabel!
+    @IBOutlet var countdownTimeLabel: UILabel!
+    @IBOutlet var timeToDestinationLabel: UILabel!
+    
     
 }

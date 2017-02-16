@@ -15,25 +15,34 @@ class SchedulesVC: UIViewController {
     
     var scheduleCells = [ScheduleCell]()
     var lines = [[String:Any]]()
+    var selectedLines = [[String:Any]]()
     
     override func viewDidLoad() {
         tableView.delegate = self
         tableView.dataSource = self
         
+       // print(tableView.isHidden)
+        
         loadRailLines()
     }
     
     @IBAction func next(){
-//        var stations = [String]()
+        var index = 0
         for cell in scheduleCells {
             if cell.accessoryType == .checkmark {
-//                selectedCells.append(cell)
+                let line = lines[index]
+                //print(line)
+                selectedLines.append(line)
             }
+            index += 1
         }
+        performSegue(withIdentifier: "StationsVC", sender: nil)
         
     }
     
-    func getSchedule(atIndex index: Int){
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! StationsVC
+        vc.selectedLines = selectedLines
         
     }
     

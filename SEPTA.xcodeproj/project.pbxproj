@@ -18,6 +18,8 @@
 		A32624C61E53937B009DB121 /* StationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32624C51E53937B009DB121 /* StationCell.swift */; };
 		A32624C81E539383009DB121 /* ScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32624C71E539383009DB121 /* ScheduleCell.swift */; };
 		A32624CD1E53B029009DB121 /* TimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32624CC1E53B029009DB121 /* TimeCell.swift */; };
+		A3C376F21E56347F000C50B4 /* TimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C376F11E56347F000C50B4 /* TimeVC.swift */; };
+		A3C376F41E56365B000C50B4 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C376F31E56365B000C50B4 /* MenuView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		A32624C51E53937B009DB121 /* StationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationCell.swift; sourceTree = "<group>"; };
 		A32624C71E539383009DB121 /* ScheduleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleCell.swift; sourceTree = "<group>"; };
 		A32624CC1E53B029009DB121 /* TimeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeCell.swift; sourceTree = "<group>"; };
+		A3C376F11E56347F000C50B4 /* TimeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeVC.swift; sourceTree = "<group>"; };
+		A3C376F31E56365B000C50B4 /* MenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,8 +104,10 @@
 		A32624CB1E5393A0009DB121 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				A3C376F31E56365B000C50B4 /* MenuView.swift */,
 				195BF3E21E487E3B00699E31 /* SchedulesVC.swift */,
 				A31385741E550CC500137B6F /* StationsVC.swift */,
+				A3C376F11E56347F000C50B4 /* TimeVC.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -183,9 +189,11 @@
 				A32624CD1E53B029009DB121 /* TimeCell.swift in Sources */,
 				195BF3E31E487E3B00699E31 /* SchedulesVC.swift in Sources */,
 				195BF3CE1E487D3200699E31 /* AppDelegate.swift in Sources */,
+				A3C376F41E56365B000C50B4 /* MenuView.swift in Sources */,
 				A31385751E550CC500137B6F /* StationsVC.swift in Sources */,
 				195BF3D61E487D3200699E31 /* SEPTA.xcdatamodeld in Sources */,
 				A32624C81E539383009DB121 /* ScheduleCell.swift in Sources */,
+				A3C376F21E56347F000C50B4 /* TimeVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
