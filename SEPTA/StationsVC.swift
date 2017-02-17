@@ -8,7 +8,24 @@
 
 import UIKit
 
-struct StationDetails {
+struct StationDetail {
+    var scheduleName: String //e.g. Chestnut Hill West
+    var stationName: String //e.g. Allen Lane
+    var direction: String //e.g. to Center City
+    var dayOfWeekSchedule: String //e.g. weekday
+    var timesArray: [String] // e.g. 5:55 AM, 7:30 AM...
+    
+    init(scheduleName: String,
+         stationName: String,
+         direction: String,
+         dayOfWeekSchedule: String,
+         timesArray: [String]){
+        self.scheduleName = scheduleName
+        self.stationName = stationName
+        self.direction = direction
+        self.dayOfWeekSchedule = dayOfWeekSchedule
+        self.timesArray = timesArray
+    }
     
 }
 
@@ -16,35 +33,45 @@ class StationsVC: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
+    typealias StationTuple = (name: String, bothDirections: [[String:Any]])
+    typealias DirectionTuple = (scheduleName: String, directionName: String, stationTimes: [[String:Any]])
+    
+    typealias SelectStation = (line: String, direction: String, stationNamesArray: [String])
+    
+    var stationTupleArray = [StationTuple]()
+    var directionTupleArray = [DirectionTuple]()
+    var selectStationArray = [SelectStation]()
+    
     var selectedLines = [[String:Any]]()
-    var stationDetailsArray = [StationDetails]()
+//    var selectedStations = [[String:Any]]()
+    var stationDetailArray = [StationDetail]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         
-        createListOfStations()
+        createStationDetails()
     }
     
-    typealias StationTuple = (name: String, bothDirections: [[String:Any]])
-    typealias DirectionTuple = (scheduleName: String, directionName: String, stationTimes: [[String:Any]])
-    typealias StationDetails = (
-        scheduleName: String, //e.g. Chestnut Hill West
-        stationName: String, //e.g. Allen Lane
-        direction: String, // e.g. to Center City
-        dayOfWeekSchedule: String, //e.g. weekday
-        timesArray: [String]) //5:55 AM, 7:30 AM...
+    //NEXT: display select station array in StationsVC
     
-    func createListOfStations(){
-        var stationTupleArray = [StationTuple]()
-        var directionTupleArray = [DirectionTuple]()
+    func getStationsForEachLine(){
         
-        //var station: (name: String, bothDirections: [[String:Any]]) = []
         for line in selectedLines {
             let lineName = line["name"] as! String
-            let bothDirections = line["directions"] as! [[String:Any]]
-            stationTupleArray.append((name: lineName, bothDirections: bothDirections))
+            let directions = line["directions"] as! [[String:Any]]
+            for x in directions {
+                let directionName = x["direction"] as! String
+                let stationArray = x["stations"] as! [[String:Any]]
+                var stationNamesArray = [String]()
+                for station in stationArray {
+                    let stationName = station["name"] as! String
+                    stationNamesArray.append(stationName)
+                }
+                selectStationArray.append((line: lineName, direction: directionName, stationNamesArray: stationNamesArray))
+            }
+            stationTupleArray.append((name: lineName, bothDirections: directions))
         }
         for tuple in stationTupleArray {
             let array = tuple.bothDirections
@@ -56,28 +83,46 @@ class StationsVC: UIViewController {
                                             stationTimes: stations))
             }
         }
+    }
+
+    func createStationDetails(){
+        
+
         for station in directionTupleArray {
             let scheduleName = station.scheduleName
             for stationTime in station.stationTimes {
                 let stationName = stationTime["name"] as! String
                 let weekday = stationTime["weekday"] as! [String]
-                stationDetailsArray.append((
-                    scheduleName: scheduleName,
-                    stationName: stationName,
-                    direction: station.directionName,
-                    dayofWeekSchedule: "weekday",
-                    timesArray: weekday) as! StationsVC.StationDetails)
-                //we do we need to cast it?
-                //maybe turn this tuple into a struct. I think I'm going to do that.
+                let stationDetail = StationDetail(scheduleName: scheduleName,
+                                                  stationName: stationName,
+                                                  direction: station.directionName,
+                                                  dayOfWeekSchedule: "weekday",
+                                                  timesArray: weekday)
+                stationDetailArray.append(stationDetail)
                 if let sunday = stationTime["sunday"] as? [String] {
-                    //turn tuple into struct
+                    let newStationDetail = StationDetail(scheduleName: scheduleName,
+                                                      stationName: stationName,
+                                                      direction: station.directionName,
+                                                      dayOfWeekSchedule: "sunday",
+                                                      timesArray: sunday)
+                    stationDetailArray.append(newStationDetail)
                 }
                 if let saturday = stationTime["saturday"] as? [String] {
-                 //
+                    let newStationDetail = StationDetail(scheduleName: scheduleName,
+                                                         stationName: stationName,
+                                                         direction: station.directionName,
+                                                         dayOfWeekSchedule: "saturday",
+                                                         timesArray: saturday)
+                    stationDetailArray.append(newStationDetail)
                 }
                 
                 if let weekend = stationTime["weekend"] as? [String] {
-                    //
+                    let newStationDetail = StationDetail(scheduleName: scheduleName,
+                                                         stationName: stationName,
+                                                         direction: station.directionName,
+                                                         dayOfWeekSchedule: "weekend",
+                                                         timesArray: weekend)
+                    stationDetailArray.append(newStationDetail)
                 }
                 
             }

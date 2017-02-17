@@ -65,19 +65,95 @@
     {"name" : "Chestnut Hill East",
       "directions": [
         {
-          "name" : "To 30th Street",
+          "name" : "To Center City",
           "stations" : [
             {
-              "name": "",
+              "name": "Chestnut Hill East",
               "weekday":[
-                ""
+                "5:45 AM",
+                "6:25 AM",
+                "6:45 AM",
+                "7:17 AM",
+                "7:45 AM",
+                "8:03 AM",
+                "8:37 AM",
+                "9:30 AM",
+                "10:20 AM",
+                "11:26 AM",
+                "12:29 PM",
+                "1:36 PM",
+                "2:42 PM",
+                "3:40 PM",
+                "4:26 PM",
+                "5:15 PM",
+                "5:38 PM",
+                "6:10 PM",
+                "6:42 PM",
+                "7:22 PM",
+                "8:20 PM",
+                "9:29 PM",
+                "10:17 PM",
+                "11:22 PM",
+                "12:22 AM"
               ],
-              "saturday":[
-                ""
-              ],
-              "sunday":[
-                ""
+              "weekend":[
+                "6:20 AM",
+                "7:20 AM",
+                "8:20 AM",
+                "9:20 AM",
+                "10:20 AM",
+                "11:20 AM",
+                "12:20 PM",
+                "1:20 PM",
+                "2:20 PM",
+                "3:20 PM",
+                "4:20 PM",
+                "5:20 PM",
+                "6:20 PM",
+                "7:20 PM",
+                "8:20 PM",
+                "9:20 PM",
+                "10:20 PM",
               ]
+            }
+            {
+              "name": "Gravers"
+            }
+            {
+              "name": "Windmoor"
+            }
+            {
+              "name": "Mount Airy"
+            }
+            {
+              "name": "Sedgwick"
+            }
+            {
+              "name": "Stenton"
+            }
+            {
+              "name": "Washington Lane"
+            }
+            {
+              "name": "Germantown"
+            }
+            {
+              "name": "Wister"
+            }
+            {
+              "name": "Wayne Junction"
+            }
+            {
+              "name": "Temple University"
+            }
+            {
+              "name": "Jefferson Station"
+            }
+            {
+              "name": "Suburban Station"
+            }
+            {
+              "name": "30th Street Station"
             }
           ]
         },
@@ -85,28 +161,13 @@
           "name" : "To Chestnut Hill East",
           "stations" : [
             {
+              "name": "University City",
+            },
+            {
               "name": "30th Street",
-              "weekday": [
-                ""
-              ],
-              "saturday": [
-                ""
-              ],
-              "sunday": [
-                ""
-              ]
             },
             {
               "name": "Suburban",
-              "weekday": [
-                ""
-              ],
-              "saturday": [
-                ""
-              ],
-              "sunday": [
-                ""
-              ]
             },
             {
               "name": "Jefferson",
@@ -133,15 +194,63 @@
                 "9:32 PM",
                 "10:31 PM",
                 "11:45 PM",
-                "1:16 PM",
+                "1:16 AM",
               ],
-              "saturday": [
-                ""
+              "weekend": [
+                "6:40 AM",
+                "7:40 AM",
+                "8:40 AM",
+                "9:40 AM",
+                "10:40 AM",
+                "11:40 AM",
+                "12:40 PM",
+                "1:40 PM",
+                "2:40 PM",
+                "3:40 PM",
+                "4:40 PM",
+                "5:40 PM",
+                "6:40 PM",
+                "7:40 PM",
+                "8:40 PM",
+                "9:40 PM",
+                "10:40 PM",
+                "11:40 PM",
               ],
-              "sunday": [
-                ""
-              ]
             }
+            {
+              "name": "Temple University",
+            },
+            {
+              "name": "Wayne Junction",
+            },
+            {
+              "name": "Wister",
+            },
+            {
+              "name": "Germantown",
+            },
+            {
+              "name": "Washington Lane",
+            },
+            {
+              "name": "Stenton",
+            },
+            {
+              "name": "Sedgwick",
+            },
+            {
+              "name": "Mount Airy",
+            },
+            {
+              "name": "Wyndmoor",
+            },
+            {
+              "name": "Gravers",
+            },
+            {
+              "name": "Chestnut Hill East",
+            },
+
           ]
         }
       ]
@@ -188,57 +297,149 @@
             },
             {
               "name": "Highland",
-              "weekday": [
-                "10:00 AM"
-              ],
-              "saturday": [
-                ""
-              ],
-              "sunday": [
-                ""
-              ]
-            }
+            },
+            {
+              "name": "St Martins",
+            },
+            {
+              "name": "Allen Lane",
+            },
+            {
+              "name": "Carpenter",
+            },
+            {
+              "name": "Upsal",
+            },
+            {
+              "name": "Tulpehocken",
+            },
+            {
+              "name": "Chelten Avenue",
+            },
+            {
+              "name": "Queen Lane",
+            },
+            {
+              "name": "North Philadelphia",
+            },
+            {
+              "name": "30th Street",
+            },
+            {
+              "name": "Suburban",
+            },
+            {
+              "name": "Jefferson",
+            },
+            {
+              "name": "Temple University",
+            },
           ]
         },
         {
           "name": "To Chestnut Hill West",
           "stations": [
             {
-              "name" : "Temple University",
-              "weekday" : [
-               ""
-              ],
-              "saturday" : [
-                ""
-              ],
-              "sunday" : [
-                ""
-              ]
+              "name" : "Temple University"
             },
             {
               "name" : "Jefferson",
               "weekday" : [
-               ""
+                "6:42 AM",
+                "7:11 AM",
+                "7:41 AM",
+                "8:16 AM",
+                "8:50 AM",
+                "9:24 AM",
+                "9:48 AM",
+                "10:35 AM",
+                "11:30 AM",
+                "12:27 PM",
+                "1:36 PM",
+                "2:35 PM",
+                "3:26 PM",
+                "4:38 PM",
+                "5:37 PM",
+                "5:54 PM",
+                "6:29 PM",
+                "6:56 PM",
+                "7:42 PM",
+                "8:25 PM",
+                "8:46 PM",
+                "9:28 PM",
+                "10:35 PM",
+                "11:34 PM",
               ],
               "saturday" : [
-                ""
+                  "8:04 AM",
+                  "9:04 AM",
+                  "10:04 AM",
+                  "11:04 AM",
+                  "12:04 PM",
+                  "1:04 PM",
+                  "2:04 PM",
+                  "3:04 PM",
+                  "4:04 PM",
+                  "5:04 PM",
+                  "6:04 PM",
+                  "7:04 PM",
+                  "8:04 PM",
+                  "9:04 PM",
+                  "10:04 PM",
+                  "10:51 PM",
+                  "11:30 PM",
               ],
               "sunday" : [
-                ""
+                "8:21 AM",
+                "9:59 AM",
+                "11:21 AM",
+                "12;59 PM",
+                "2:21 PM",
+                "3:59 PM",
+                "5:21 PM",
+                "6:59 PM",
+                "8:21 PM",
+                "9:59 PM",
+                "11:30 PM",
               ]
             },
             {
-              "name" : "Suburban",
-              "weekday" : [
-               ""
-              ],
-              "saturday" : [
-                ""
-              ],
-              "sunday" : [
-                ""
-              ]
+              "name" : "Suburban"
             },
+            {
+              "name" : "30th Street",
+            },
+            {
+              "name" : "North Philadelphia",
+            },
+            {
+              "name" : "Queen Lane",
+            },
+            {
+              "name" : "Chelten Avenue",
+            },
+            {
+              "name" : "Tulpehocken",
+            },
+            {
+              "name" : "Upsal",
+            },
+            {
+              "name" : "Carpenter",
+            },
+            {
+              "name" : "Allen Lane",
+            },
+            {
+              "name" : "St Martins",
+            },
+            {
+              "name" : "Highland",
+            },
+            {
+              "name" : "Chestnut Hill West",
+            },
+
           ]
         }
       ]
