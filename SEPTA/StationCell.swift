@@ -12,4 +12,7 @@ class StationCell: UITableViewCell {
     
     @IBOutlet var stationLabel: UILabel!
     
+    var station: SelectStation!
+    var index: Int!
+    
 }

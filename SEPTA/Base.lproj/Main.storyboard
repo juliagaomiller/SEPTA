@@ -27,11 +27,11 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="StationCell" id="Lti-3a-lrR" customClass="StationCell" customModule="SEPTA" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="StationCell" id="Lti-3a-lrR" customClass="StationCell" customModule="SEPTA" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Lti-3a-lrR" id="vPu-6J-AfO">
-                                            <rect key="frame" x="0.0" y="0.0" width="336" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Suburban Station" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CJ0-iX-uWM">
@@ -46,6 +46,9 @@
                                                 <constraint firstItem="CJ0-iX-uWM" firstAttribute="leading" secondItem="vPu-6J-AfO" secondAttribute="leadingMargin" constant="10" id="xfU-nS-I05"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="stationLabel" destination="CJ0-iX-uWM" id="OyE-NF-Ixn"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -53,6 +56,7 @@
                                 <rect key="frame" x="16" y="631" width="343" height="30"/>
                                 <state key="normal" title="NEXT"/>
                                 <connections>
+                                    <action selector="next" destination="S0B-vI-YVH" eventType="touchUpInside" id="kGc-UK-3tv"/>
                                     <action selector="next" destination="Kud-mk-Xlq" eventType="touchUpInside" id="mTK-uN-yed"/>
                                 </connections>
                             </button>
@@ -72,7 +76,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select the Stations You Want to Watch" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XAA-UJ-wlk">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select the Stations You Frequent" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XAA-UJ-wlk">
                                         <rect key="frame" x="0.0" y="19.5" width="297.5" height="14.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -99,57 +103,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="k49-IQ-VhJ"/>
                     <connections>
+                        <outlet property="directionLabel" destination="3j0-yL-0Mx" id="vR3-zl-nmT"/>
                         <outlet property="tableView" destination="a1v-gW-arP" id="NPu-r9-XmT"/>
+                        <segue destination="o8r-qY-WhC" kind="show" identifier="TimeVC" id="obC-1n-zkA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6cb-cX-wba" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="560.79999999999995" y="133.5832083958021"/>
-        </scene>
-        <!--Root View Controller-->
-        <scene sceneID="JKe-uz-5UZ">
-            <objects>
-                <tableViewController id="YKG-H8-dpe" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="M7W-Ga-NdG">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="IV6-3k-ufQ">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IV6-3k-ufQ" id="eLW-Xj-8lR">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="YKG-H8-dpe" id="au9-mD-QIr"/>
-                            <outlet property="delegate" destination="YKG-H8-dpe" id="RdP-H5-Pdp"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="pUG-l0-X09"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tCz-AD-U3a" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="42" y="-523"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="df5-dr-EG7">
-            <objects>
-                <navigationController id="P3p-Lq-7C0" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vT2-kX-qnZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="YKG-H8-dpe" kind="relationship" relationship="rootViewController" id="ovV-Lt-cFQ"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2wd-Ti-z3k" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-909" y="-523"/>
         </scene>
         <!--SchedulesVC-->
         <scene sceneID="uJW-gz-bQ6">
@@ -411,7 +372,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="1232.8" y="133.5832083958021"/>
+            <point key="canvasLocation" x="1519" y="120"/>
         </scene>
     </scenes>
     <resources>

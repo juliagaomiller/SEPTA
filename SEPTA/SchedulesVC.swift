@@ -24,6 +24,7 @@ class SchedulesVC: UIViewController {
        // print(tableView.isHidden)
         
         loadRailLines()
+        tableView.reloadData()
     }
     
     @IBAction func next(){
@@ -52,17 +53,18 @@ class SchedulesVC: UIViewController {
                 if let data = try? JSONSerialization.jsonObject(with: json)
                 {
                     if let all = data as? [String:Any] {
+                        
                         lines = all["lines"] as! [[String:Any]]
                         for line in lines {
                             let name = line["name"] as! String
                             let cell = tableView.dequeueReusableCell(withIdentifier: "ScheduleCell") as! ScheduleCell
                             cell.scheduleLabel.text = name
                             scheduleCells.append(cell)
+                            //print(scheduleCells.count)
                         }
 
                     }
-                }
-                
+                } else { print("couldn't convert file") }
             }
         }
     }
@@ -72,6 +74,7 @@ class SchedulesVC: UIViewController {
 extension SchedulesVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //print(scheduleCells.count)
         return scheduleCells.count
     }
     
