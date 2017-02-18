@@ -29,7 +29,7 @@ struct StationDetail {
     
 }
 
-typealias StationTuple = (name: String, bothDirections: [[String:Any]])
+//typealias StationTuple = (name: String, bothDirections: [[String:Any]])
 typealias DirectionTuple = (scheduleName: String, directionName: String, stationTimes: [[String:Any]])
 typealias SelectStation = (line: String, direction: String, stationNamesArray: [[String:Any]])
 //typealias StationSchedule = (stationName: String, hours: [[String:Any]])
@@ -39,8 +39,8 @@ class StationsVC: UIViewController {
     @IBOutlet var tableView: UITableView!
     @IBOutlet var directionLabel: UILabel!
     
-    var stationTupleArray = [StationTuple]()
-    var directionTupleArray = [DirectionTuple]()
+//    var stationTupleArray = [StationTuple]()
+//    var directionTupleArray = [DirectionTuple]()
     
     var selectStationIndex = 0
     var stationArray = [SelectStation]()
@@ -67,16 +67,33 @@ class StationsVC: UIViewController {
         let direction = station.direction
         
         let stationName = (station.stationNamesArray[index]["name"] as! String)
-        let specificStation = station.stationNamesArray[index]
+//        let specificStation = station.stationNamesArray[index]
         var weekHours = station.stationNamesArray[index]
         weekHours.removeValue(forKey: "name")
         for schedule in weekHours {
-            print(schedule)
-            //WORKS!!
-//            let scheduleDetail = StationDetail(scheduleName: scheduleName, stationName: stationName, direction: direction, dayOfWeekSchedule: schedule["name"], timesArray: <#T##[String]#>)
+            let dayOfWeekSchedule = schedule.key
+            //print(schedule.value)
+            var stationDetail: StationDetail!
+            guard let timesArray = schedule.value as? [String] else {
+               stationDetail = StationDetail(scheduleName: scheduleName, stationName: stationName, direction: direction, dayOfWeekSchedule: dayOfWeekSchedule, timesArray: [""])
+                break
+            }
+            stationDetail = StationDetail(scheduleName: scheduleName, stationName: stationName, direction: direction, dayOfWeekSchedule: dayOfWeekSchedule, timesArray: timesArray)
+//            if let timesArray = schedule.value as! [String] {
+//                
+//            }
+            
+            //ERROR IN TIME ARRAY
+            
+            stationDetailArray.append(stationDetail)
         }
         
         //let stationSchedule = StationSchedule(stationName: stationName, hours: )
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! TimeVC
+        vc.stationDetailArray = stationDetailArray
     }
     
     @IBAction func next(){
@@ -88,18 +105,19 @@ class StationsVC: UIViewController {
             }
             cell.accessoryType = .none
         }
+        selectStationIndex += 1
         if selectStationIndex < stationArray.count {
-            selectStationIndex += 1
             updateHeader()
-            
             tableView.reloadData()
         } else {
-            //perform segue to TimeVC
+            performSegue(withIdentifier: "TimeVC", sender: nil)
         }
     }
     
     func updateHeader(){
-        directionLabel.text = stationArray[selectStationIndex].direction
+        if selectStationIndex < stationArray.count {
+           directionLabel.text = stationArray[selectStationIndex].direction
+        }
     }
     
     func getStationsForEachLine(){

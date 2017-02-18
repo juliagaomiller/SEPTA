@@ -64,7 +64,7 @@ class SchedulesVC: UIViewController {
                         }
 
                     }
-                } else { print("couldn't convert file") }
+                } else { print("Couldn't convert file from JSON data to Any. Check your JSON file for errors.") }
             }
         }
     }

@@ -215,7 +215,11 @@
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="FJs-RR-2Qd"/>
-                                    <barButtonItem title="Switch Favorite Stations" id="szU-kA-bIi"/>
+                                    <barButtonItem title="Switch My Stations" id="szU-kA-bIi">
+                                        <connections>
+                                            <action selector="switchStations" destination="o8r-qY-WhC" id="lOW-4X-VEo"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="mHd-JT-xza"/>
                                 </items>
                             </toolbar>
@@ -231,7 +235,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="49N-U2-kHt">
-                                                    <rect key="frame" x="10" y="2.5" width="205.5" height="38.5"/>
+                                                    <rect key="frame" x="10" y="2.5" width="173.5" height="38.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8:40 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tEF-OL-odk">
                                                             <rect key="frame" x="0.0" y="0.0" width="78" height="24"/>
@@ -239,8 +243,8 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chestnut Hill West (31 min) 9:30 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Epa-FK-9G1">
-                                                            <rect key="frame" x="0.0" y="24" width="205.5" height="14.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="→ Allen Lane (31 min) 9:30 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Epa-FK-9G1">
+                                                            <rect key="frame" x="0.0" y="24" width="173.5" height="14.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -281,6 +285,38 @@
                                             <outlet property="timeToDestinationLabel" destination="Epa-FK-9G1" id="WwW-l7-L7P"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChangeStationCell" id="ecL-jT-g9z" customClass="ChangeStationCell" customModule="SEPTA" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ecL-jT-g9z" id="g4O-cW-Umh">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chestnut Hill West" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EfZ-l3-0LD">
+                                                    <rect key="frame" x="10" y="12" width="141" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="→ Center City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G63-Tv-zt8">
+                                                    <rect key="frame" x="265" y="12" width="100" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="EfZ-l3-0LD" firstAttribute="centerY" secondItem="g4O-cW-Umh" secondAttribute="centerY" id="25t-7p-DXk"/>
+                                                <constraint firstAttribute="trailing" secondItem="G63-Tv-zt8" secondAttribute="trailing" constant="10" id="EIK-Wi-lr0"/>
+                                                <constraint firstItem="G63-Tv-zt8" firstAttribute="centerY" secondItem="g4O-cW-Umh" secondAttribute="centerY" id="V2C-6p-SMc"/>
+                                                <constraint firstItem="EfZ-l3-0LD" firstAttribute="leading" secondItem="g4O-cW-Umh" secondAttribute="leading" constant="10" id="kSv-y8-Uf9"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="directionLabel" destination="G63-Tv-zt8" id="UvX-6L-UIZ"/>
+                                            <outlet property="stationNameLabel" destination="EfZ-l3-0LD" id="muq-6Q-RO0"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HLI-et-gMy">
@@ -296,24 +332,27 @@
                                     <constraint firstAttribute="height" constant="18" id="yHH-5y-DA6"/>
                                 </constraints>
                                 <state key="normal" image="threeLines"/>
+                                <connections>
+                                    <action selector="openMenu" destination="o8r-qY-WhC" eventType="touchUpInside" id="nqt-Ko-G7F"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="C7f-gp-smP">
-                                <rect key="frame" x="98" y="79" width="180.5" height="65"/>
+                                <rect key="frame" x="108.5" y="79" width="158" height="65"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8:27 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fe0-Uh-mIQ">
-                                        <rect key="frame" x="37.5" y="0.0" width="105.5" height="33.5"/>
+                                        <rect key="frame" x="26.5" y="0.0" width="105.5" height="33.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday, January 15th, 2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w2u-d8-9Vb">
-                                        <rect key="frame" x="0.0" y="33.5" width="180.5" height="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weekday Schedule →" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3tx-e4-7Cu">
+                                        <rect key="frame" x="9.5" y="33.5" width="139" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weekday Schedule" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3tx-e4-7Cu">
-                                        <rect key="frame" x="36.5" y="50.5" width="107.5" height="14.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday, January 15th, 2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w2u-d8-9Vb">
+                                        <rect key="frame" x="0.0" y="50.5" width="158" height="14.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -337,6 +376,12 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u3j-Nh-fyH">
+                                <rect key="frame" x="0.0" y="64" width="375" height="95"/>
+                                <connections>
+                                    <action selector="switchDayOfWeekSchedule" destination="o8r-qY-WhC" eventType="touchUpInside" id="7hH-f6-4me"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -349,10 +394,14 @@
                             <constraint firstItem="cDL-P1-t2P" firstAttribute="centerX" secondItem="HLI-et-gMy" secondAttribute="centerX" id="K0E-e3-Kcg"/>
                             <constraint firstAttribute="trailing" secondItem="oFf-HC-ldK" secondAttribute="trailing" id="R6C-dS-Ok2"/>
                             <constraint firstItem="jNo-kl-n2x" firstAttribute="top" secondItem="Or7-gf-UjR" secondAttribute="bottom" id="TjX-GP-Zh7"/>
+                            <constraint firstItem="u3j-Nh-fyH" firstAttribute="top" secondItem="HLI-et-gMy" secondAttribute="bottom" id="UEb-Su-Gtb"/>
                             <constraint firstItem="4HQ-JB-iMB" firstAttribute="leading" secondItem="5wx-dW-2SX" secondAttribute="leading" constant="10" id="Z8K-41-tnN"/>
                             <constraint firstItem="HLI-et-gMy" firstAttribute="leading" secondItem="5wx-dW-2SX" secondAttribute="leading" id="aMt-Kb-tRq"/>
+                            <constraint firstItem="oFf-HC-ldK" firstAttribute="top" secondItem="u3j-Nh-fyH" secondAttribute="bottom" id="aXf-Mc-UgD"/>
                             <constraint firstItem="Or7-gf-UjR" firstAttribute="top" secondItem="oFf-HC-ldK" secondAttribute="bottom" id="dK2-RW-xnn"/>
                             <constraint firstItem="C7f-gp-smP" firstAttribute="top" secondItem="HLI-et-gMy" secondAttribute="bottom" constant="15" id="fXO-ZR-jq8"/>
+                            <constraint firstItem="u3j-Nh-fyH" firstAttribute="leading" secondItem="5wx-dW-2SX" secondAttribute="leading" id="gtf-y2-DSW"/>
+                            <constraint firstAttribute="trailing" secondItem="u3j-Nh-fyH" secondAttribute="trailing" id="jkf-7w-5Od"/>
                             <constraint firstItem="C7f-gp-smP" firstAttribute="centerX" secondItem="5wx-dW-2SX" secondAttribute="centerX" id="v5v-tU-mH0"/>
                             <constraint firstAttribute="trailing" secondItem="HLI-et-gMy" secondAttribute="trailing" id="xQc-S9-1Ws"/>
                             <constraint firstItem="Or7-gf-UjR" firstAttribute="leading" secondItem="5wx-dW-2SX" secondAttribute="leading" id="xVj-6F-nqM"/>
@@ -360,6 +409,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="K6u-Rn-AaX"/>
                     <connections>
+                        <outlet property="currentDayLabel" destination="w2u-d8-9Vb" id="Ly3-2U-HUj"/>
+                        <outlet property="currentTimeLabel" destination="fe0-Uh-mIQ" id="3Dy-iv-2qO"/>
+                        <outlet property="dayOfWeekScheduleLabel" destination="3tx-e4-7Cu" id="zME-Gr-Py9"/>
                         <outlet property="directionLabel" destination="SDh-Hy-WU5" id="dys-ve-Sei"/>
                         <outlet property="lineNameLabel" destination="Vvu-ZT-5CP" id="5OR-aB-cJx"/>
                         <outlet property="tableView" destination="oFf-HC-ldK" id="105-Tv-w82"/>
@@ -372,7 +424,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="1519" y="120"/>
+            <point key="canvasLocation" x="1517.5999999999999" y="119.1904047976012"/>
         </scene>
     </scenes>
     <resources>

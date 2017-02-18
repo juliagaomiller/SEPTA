@@ -21,6 +21,7 @@
 		A3C376F21E56347F000C50B4 /* TimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C376F11E56347F000C50B4 /* TimeVC.swift */; };
 		A3C376F41E56365B000C50B4 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C376F31E56365B000C50B4 /* MenuView.swift */; };
 		A3C376F61E578FEF000C50B4 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C376F51E578FEF000C50B4 /* CustomButton.swift */; };
+		A3C376F91E58AEC9000C50B4 /* ChangeStationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C376F81E58AEC9000C50B4 /* ChangeStationCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		A3C376F11E56347F000C50B4 /* TimeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeVC.swift; sourceTree = "<group>"; };
 		A3C376F31E56365B000C50B4 /* MenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		A3C376F51E578FEF000C50B4 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		A3C376F81E58AEC9000C50B4 /* ChangeStationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeStationCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				A32624CC1E53B029009DB121 /* TimeCell.swift */,
 				A32624C51E53937B009DB121 /* StationCell.swift */,
 				A32624C71E539383009DB121 /* ScheduleCell.swift */,
+				A3C376F81E58AEC9000C50B4 /* ChangeStationCell.swift */,
 			);
 			name = cells;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 				A32624C61E53937B009DB121 /* StationCell.swift in Sources */,
 				A32624CD1E53B029009DB121 /* TimeCell.swift in Sources */,
 				195BF3E31E487E3B00699E31 /* SchedulesVC.swift in Sources */,
+				A3C376F91E58AEC9000C50B4 /* ChangeStationCell.swift in Sources */,
 				195BF3CE1E487D3200699E31 /* AppDelegate.swift in Sources */,
 				A3C376F61E578FEF000C50B4 /* CustomButton.swift in Sources */,
 				A3C376F41E56365B000C50B4 /* MenuView.swift in Sources */,

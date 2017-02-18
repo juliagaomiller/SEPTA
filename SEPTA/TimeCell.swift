@@ -14,5 +14,9 @@ class TimeCell: UITableViewCell {
     @IBOutlet var countdownTimeLabel: UILabel!
     @IBOutlet var timeToDestinationLabel: UILabel!
     
+    func configure(departureTime: String){
+        departureTimeLabel.text = departureTime
+    }
+    
     
 }
