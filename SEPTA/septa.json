@@ -65,7 +65,7 @@
     {"name" : "Chestnut Hill East",
       "directions": [
         {
-          "name" : "Chestnut Hill East → Center City",
+          "name" : "→ Center City",
           "stations" : [
             {
               "name": "Chestnut Hill East",
@@ -158,7 +158,7 @@
           ]
         },
         {
-          "name" : "Center City → Chestnut Hill East",
+          "name" : "→ Chestnut Hill East",
           "stations" : [
             {
               "name": "University City",
@@ -271,7 +271,7 @@
     {"name": "Chestnut Hill West",
       "directions": [
         {
-          "name": "Chestnut Hill West → Center City",
+          "name": "→ Center City",
           "stations": [
             {
               "name": "Chestnut Hill West",
@@ -363,7 +363,7 @@
           ]
         },
         {
-          "name": "Center City → Chestnut Hill West",
+          "name": "→ Chestnut Hill West",
           "stations": [
             {
               "name" : "Temple University"

@@ -18,21 +18,24 @@ class SchedulesVC: UIViewController {
     var selectedLines = [[String:Any]]()
     
     override func viewDidLoad() {
+        self.view.isHidden = true
         tableView.delegate = self
         tableView.dataSource = self
-        
-       // print(tableView.isHidden)
-        
+//        checkForUserDefaults()
         loadRailLines()
         tableView.reloadData()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        checkForUserDefaults()
+    }
+    
     @IBAction func next(){
+        //MAKE SURE THAT AT LEAST ONE SCHEDULE HAS BEEN SELECTED
         var index = 0
         for cell in scheduleCells {
             if cell.accessoryType == .checkmark {
                 let line = lines[index]
-                //print(line)
                 selectedLines.append(line)
             }
             index += 1
@@ -42,31 +45,22 @@ class SchedulesVC: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as! StationsVC
-        vc.selectedLines = selectedLines
-        
-    }
-    
-    func loadRailLines(){
-        if let path = Bundle.main.path(forResource: "septa", ofType: "json") {
-            if let json = try? Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe){
-                if let data = try? JSONSerialization.jsonObject(with: json)
-                {
-                    if let all = data as? [String:Any] {
-                        
-                        lines = all["lines"] as! [[String:Any]]
-                        for line in lines {
-                            let name = line["name"] as! String
-                            let cell = tableView.dequeueReusableCell(withIdentifier: "ScheduleCell") as! ScheduleCell
-                            cell.scheduleLabel.text = name
-                            scheduleCells.append(cell)
-                            //print(scheduleCells.count)
-                        }
-
-                    }
-                } else { print("Couldn't convert file from JSON data to Any. Check your JSON file for errors.") }
+        if sender != nil {
+            if segue.identifier == "StationsVC" {
+                let vc = segue.destination as! StationsVC
+                vc.selectedLines = sender as! [[String:Any]]
+            } else if segue.identifier == "TimeVC" {
+                let vc = segue.destination as! TimeVC
+                vc.savedStationsDict = sender as! [[String:Any]]
+                //vc.stationDetailArray = sender as! [[String:Any]]
             }
+        } else {
+            let vc = segue.destination as! StationsVC
+            UserDefaults.standard.set(selectedLines, forKey: "selectedLines")
+            vc.selectedLines = selectedLines
         }
+        
+        
     }
     
 }
@@ -91,6 +85,38 @@ extension SchedulesVC: UITableViewDataSource, UITableViewDelegate {
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
+}
+
+extension SchedulesVC {
     
+    func loadRailLines(){
+        if let path = Bundle.main.path(forResource: "septa", ofType: "json") {
+            if let json = try? Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe){
+                if let data = try? JSONSerialization.jsonObject(with: json)
+                {
+                    if let all = data as? [String:Any] {
+                        lines = all["lines"] as! [[String:Any]]
+                        for line in lines {
+                            let name = line["name"] as! String
+                            let cell = tableView.dequeueReusableCell(withIdentifier: "ScheduleCell") as! ScheduleCell
+                            cell.scheduleLabel.text = name
+                            scheduleCells.append(cell)
+                        }
+                        
+                    }
+                } else { print("Couldn't convert file from JSON data to Any. Check your JSON file for errors.") }
+            }
+        }
+    }
+    
+    func checkForUserDefaults(){
+        if let stationsExist = UserDefaults.standard.object(forKey: "stationDetailArray") as? [[String:Any]] {
+            performSegue(withIdentifier: "TimeVC", sender: stationsExist)
+        } else if let linesExist = UserDefaults.standard.object(forKey: "selectedLines") as? [[String:Any]] {
+            performSegue(withIdentifier: "StationsVC", sender: linesExist)
+        } else {
+            self.view.isHidden = false
+        }
+    }
     
 }

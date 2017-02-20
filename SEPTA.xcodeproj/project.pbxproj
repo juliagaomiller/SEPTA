@@ -22,6 +22,7 @@
 		A3C376F41E56365B000C50B4 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C376F31E56365B000C50B4 /* MenuView.swift */; };
 		A3C376F61E578FEF000C50B4 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C376F51E578FEF000C50B4 /* CustomButton.swift */; };
 		A3C376F91E58AEC9000C50B4 /* ChangeStationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C376F81E58AEC9000C50B4 /* ChangeStationCell.swift */; };
+		A3C376FB1E5B6418000C50B4 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C376FA1E5B6418000C50B4 /* Helper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		A3C376F31E56365B000C50B4 /* MenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		A3C376F51E578FEF000C50B4 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		A3C376F81E58AEC9000C50B4 /* ChangeStationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeStationCell.swift; sourceTree = "<group>"; };
+		A3C376FA1E5B6418000C50B4 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 		A32624C91E539389009DB121 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				A3C376FA1E5B6418000C50B4 /* Helper.swift */,
 				A31385721E54F00C00137B6F /* septa.json */,
 			);
 			name = model;
@@ -118,9 +121,9 @@
 		A3C376F71E579065000C50B4 /* cells */ = {
 			isa = PBXGroup;
 			children = (
-				A32624CC1E53B029009DB121 /* TimeCell.swift */,
-				A32624C51E53937B009DB121 /* StationCell.swift */,
 				A32624C71E539383009DB121 /* ScheduleCell.swift */,
+				A32624C51E53937B009DB121 /* StationCell.swift */,
+				A32624CC1E53B029009DB121 /* TimeCell.swift */,
 				A3C376F81E58AEC9000C50B4 /* ChangeStationCell.swift */,
 			);
 			name = cells;
@@ -210,6 +213,7 @@
 				195BF3D61E487D3200699E31 /* SEPTA.xcdatamodeld in Sources */,
 				A32624C81E539383009DB121 /* ScheduleCell.swift in Sources */,
 				A3C376F21E56347F000C50B4 /* TimeVC.swift in Sources */,
+				A3C376FB1E5B6418000C50B4 /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -193,11 +193,12 @@
                     <connections>
                         <outlet property="tableView" destination="f7e-Ie-Gz4" id="5rj-EF-SOG"/>
                         <segue destination="S0B-vI-YVH" kind="showDetail" identifier="StationsVC" id="0gU-OW-wpj"/>
+                        <segue destination="o8r-qY-WhC" kind="show" identifier="TimeVC" id="8f3-Se-VuM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H47-K8-6eG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-428" y="105"/>
+            <point key="canvasLocation" x="-271" y="-211"/>
         </scene>
         <!--TimeVC-->
         <scene sceneID="LLQ-c8-p5r">
@@ -293,23 +294,23 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chestnut Hill West" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EfZ-l3-0LD">
-                                                    <rect key="frame" x="10" y="12" width="141" height="19.5"/>
+                                                    <rect key="frame" x="15" y="12" width="141" height="19.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="→ Center City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G63-Tv-zt8">
-                                                    <rect key="frame" x="265" y="12" width="100" height="19.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <rect key="frame" x="271" y="13.5" width="89" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="EfZ-l3-0LD" firstAttribute="centerY" secondItem="g4O-cW-Umh" secondAttribute="centerY" id="25t-7p-DXk"/>
-                                                <constraint firstAttribute="trailing" secondItem="G63-Tv-zt8" secondAttribute="trailing" constant="10" id="EIK-Wi-lr0"/>
+                                                <constraint firstAttribute="trailing" secondItem="G63-Tv-zt8" secondAttribute="trailing" constant="15" id="EIK-Wi-lr0"/>
                                                 <constraint firstItem="G63-Tv-zt8" firstAttribute="centerY" secondItem="g4O-cW-Umh" secondAttribute="centerY" id="V2C-6p-SMc"/>
-                                                <constraint firstItem="EfZ-l3-0LD" firstAttribute="leading" secondItem="g4O-cW-Umh" secondAttribute="leading" constant="10" id="kSv-y8-Uf9"/>
+                                                <constraint firstItem="EfZ-l3-0LD" firstAttribute="leading" secondItem="g4O-cW-Umh" secondAttribute="leading" constant="15" id="kSv-y8-Uf9"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -424,11 +425,14 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="1517.5999999999999" y="119.1904047976012"/>
+            <point key="canvasLocation" x="1375" y="-554"/>
         </scene>
     </scenes>
     <resources>
         <image name="notification" width="32" height="32"/>
         <image name="threeLines" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="8f3-Se-VuM"/>
+    </inferredMetricsTieBreakers>
 </document>
