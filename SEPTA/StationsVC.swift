@@ -46,6 +46,7 @@ class StationsVC: UIViewController {
         let cells = tableView.visibleCells
         for cell in cells {
             if cell.accessoryType != .none {
+                print("saved a station")
                 let stationCell = cell as! StationCell
                 createStationDetail(station: stationCell.station, index: stationCell.index)
             }
@@ -118,6 +119,7 @@ extension StationsVC {
         let direction = station.direction
         
         let stationName = (station.stationNamesArray[index]["name"] as! String)
+        print(stationName)
         var weekHours = station.stationNamesArray[index]
         weekHours.removeValue(forKey: "name")
         for schedule in weekHours {
@@ -127,6 +129,7 @@ extension StationsVC {
                 stationDetail = StationDetail(scheduleName: scheduleName, stationName: stationName, direction: direction, dayOfWeekSchedule: dayOfWeekSchedule, timesArray: [""])
                 break
             }
+            print(stationName)
             stationDetail = StationDetail(scheduleName: scheduleName, stationName: stationName, direction: direction, dayOfWeekSchedule: dayOfWeekSchedule, timesArray: timesArray)
             stationDetailArray.append(stationDetail)
         }

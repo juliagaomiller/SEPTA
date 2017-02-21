@@ -41,7 +41,7 @@ class SchedulesVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             let vc = segue.destination as! StationsVC
             UserDefaults.standard.set(favoritedLines, forKey: "favoritedLines")
-        print(favoritedLines.count)
+//        print(favoritedLines.count)
             vc.selectedLines = favoritedLines
     }
     

@@ -47,7 +47,7 @@ class AllStationsVC: UIViewController {
     }
     
     func createStationNames(){
-        print(selectedStation)
+//        print(selectedStation)
         var i = 0
         for x in selectedStation {
             let stations = x["stations"] as! [[String:Any]]
@@ -76,18 +76,18 @@ class AllStationsVC: UIViewController {
         }
     }
     
-    func createStationDetail(dict: [[String:Any]]){
-//        let lineName = scheduleName
-//        for x in dict {
-//            let direction = x["name"]
-//            let stat
-//        }
-        //    var scheduleName: String //e.g. Chestnut Hill West
-        //    var stationName: String //e.g. Allen Lane
-        //    var direction: String //e.g. -> Center City
-        //    var dayOfWeekSchedule: String //e.g. weekday
-        //    var timesArray: [String] // e.g. 5:55 AM, 7:30 AM...
-    }
+//    func createStationDetail(dict: [[String:Any]]){
+////        let lineName = scheduleName
+////        for x in dict {
+////            let direction = x["name"]
+////            let stat
+////        }
+//        //    var scheduleName: String //e.g. Chestnut Hill West
+//        //    var stationName: String //e.g. Allen Lane
+//        //    var direction: String //e.g. -> Center City
+//        //    var dayOfWeekSchedule: String //e.g. weekday
+//        //    var timesArray: [String] // e.g. 5:55 AM, 7:30 AM...
+//    }
     
     
 }
@@ -127,8 +127,8 @@ extension AllStationsVC: UITableViewDelegate, UITableViewDataSource {
         //i need to create 2-3 station details to be segued into timeVC.
         //I chose a specific station, --> need to go to this stations specific
         //I 
-        print(selectedStation)
-        createStationDetail(dict: selectedStation)
+        //print(selectedStation)
+        //createStationDetail(dict: selectedStation)
 
 
     }
