@@ -14,29 +14,23 @@ class SchedulesVC: UIViewController {
     @IBOutlet var tableView: UITableView!
     
     var scheduleCells = [ScheduleCell]()
-    var lines = [[String:Any]]()
-    var selectedLines = [[String:Any]]()
     
     override func viewDidLoad() {
-        self.view.isHidden = true
+//        self.view.isHidden = true
         tableView.delegate = self
         tableView.dataSource = self
-//        checkForUserDefaults()
-        loadRailLines()
+        loadRailCells()
         tableView.reloadData()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        checkForUserDefaults()
     }
     
     @IBAction func next(){
         //MAKE SURE THAT AT LEAST ONE SCHEDULE HAS BEEN SELECTED
         var index = 0
+        favoritedLines.removeAll()
         for cell in scheduleCells {
             if cell.accessoryType == .checkmark {
                 let line = lines[index]
-                selectedLines.append(line)
+                favoritedLines.append(line)
             }
             index += 1
         }
@@ -45,22 +39,10 @@ class SchedulesVC: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if sender != nil {
-            if segue.identifier == "StationsVC" {
-                let vc = segue.destination as! StationsVC
-                vc.selectedLines = sender as! [[String:Any]]
-            } else if segue.identifier == "TimeVC" {
-                let vc = segue.destination as! TimeVC
-                vc.savedStationsDict = sender as! [[String:Any]]
-                //vc.stationDetailArray = sender as! [[String:Any]]
-            }
-        } else {
             let vc = segue.destination as! StationsVC
-            UserDefaults.standard.set(selectedLines, forKey: "selectedLines")
-            vc.selectedLines = selectedLines
-        }
-        
-        
+            UserDefaults.standard.set(favoritedLines, forKey: "favoritedLines")
+        print(favoritedLines.count)
+            vc.selectedLines = favoritedLines
     }
     
 }
@@ -68,11 +50,15 @@ class SchedulesVC: UIViewController {
 extension SchedulesVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //print(scheduleCells.count)
+        
+//        return lines.count
         return scheduleCells.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "ScheduleCell")!
+//        cell.textLabel?.text = lines[indexPath.row]["name"] as! String?
+//        return cell
         return scheduleCells[indexPath.row]
     }
     
@@ -89,34 +75,29 @@ extension SchedulesVC: UITableViewDataSource, UITableViewDelegate {
 
 extension SchedulesVC {
     
-    func loadRailLines(){
-        if let path = Bundle.main.path(forResource: "septa", ofType: "json") {
-            if let json = try? Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe){
-                if let data = try? JSONSerialization.jsonObject(with: json)
-                {
-                    if let all = data as? [String:Any] {
-                        lines = all["lines"] as! [[String:Any]]
-                        for line in lines {
-                            let name = line["name"] as! String
-                            let cell = tableView.dequeueReusableCell(withIdentifier: "ScheduleCell") as! ScheduleCell
-                            cell.scheduleLabel.text = name
-                            scheduleCells.append(cell)
-                        }
-                        
-                    }
-                } else { print("Couldn't convert file from JSON data to Any. Check your JSON file for errors.") }
-            }
+    func loadRailCells(){
+        for line in lines {
+            let name = line["name"] as! String
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ScheduleCell") as! ScheduleCell
+            cell.scheduleLabel.text = name
+            scheduleCells.append(cell)
         }
+
     }
     
-    func checkForUserDefaults(){
-        if let stationsExist = UserDefaults.standard.object(forKey: "stationDetailArray") as? [[String:Any]] {
-            performSegue(withIdentifier: "TimeVC", sender: stationsExist)
-        } else if let linesExist = UserDefaults.standard.object(forKey: "selectedLines") as? [[String:Any]] {
-            performSegue(withIdentifier: "StationsVC", sender: linesExist)
-        } else {
-            self.view.isHidden = false
-        }
-    }
+//    func loadRailLines(){
+//        if let path = Bundle.main.path(forResource: "septa", ofType: "json") {
+//            if let json = try? Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe){
+//                if let data = try? JSONSerialization.jsonObject(with: json)
+//                {
+//                    if let all = data as? [String:Any] {
+//                        lines = all["lines"] as! [[String:Any]]
+//
+//                    }
+//                } else { print("Couldn't convert file from JSON data to Any. Check your JSON file for errors.") }
+//            }
+//        }
+//    }
+    
     
 }

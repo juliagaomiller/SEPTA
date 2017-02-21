@@ -8,62 +8,7 @@
 
 import UIKit
 
-struct StationDetail {
-    var scheduleName: String //e.g. Chestnut Hill West
-    var stationName: String //e.g. Allen Lane
-    var direction: String //e.g. to Center City
-    var dayOfWeekSchedule: String //e.g. weekday
-    var timesArray: [String] // e.g. 5:55 AM, 7:30 AM...
-    
-    init(scheduleName: String,
-         stationName: String,
-         direction: String,
-         dayOfWeekSchedule: String,
-         timesArray: [String]){
-        self.scheduleName = scheduleName
-        self.stationName = stationName
-        self.direction = direction
-        self.dayOfWeekSchedule = dayOfWeekSchedule
-        self.timesArray = timesArray
-    }
-    
-    public init(dict: [String:Any]){
-        scheduleName = dict["scheduleName"] as! String
-        stationName = dict["stationName"] as! String
-        direction = dict["direction"] as! String
-        dayOfWeekSchedule = dict["dayOfWeekSchedule"] as! String
-        timesArray = dict["timesArray"] as! [String]
-    }
-    
-    public func encode() -> [String:Any]{
-        var dict = [String:Any]()
-        dict["scheduleName"] = scheduleName
-        dict["stationName"] = stationName
-        dict["direction"] = direction
-        dict["dayOfWeekSchedule"] = dayOfWeekSchedule
-        dict["timesArray"] = timesArray
-        return dict
-    }
-    
-//    // Decode
-//    public init(dictionary: Dictionary<String, AnyObject>){
-//        name = dictionary["name"] as? String
-//        amount = dictionary["amount"] as? Int
-//    }
-//    
-//    // Encode
-//    public func encode() -> Dictionary<String, AnyObject> {
-//        
-//        var dictionary : Dictionary = Dictionary<String, AnyObject>()
-//        dictionary["name"] = name
-//        dictionary["amount"] = amount
-//        return dictionary
-//    }
-    
-}
-
-typealias DirectionTuple = (scheduleName: String, directionName: String, stationTimes: [[String:Any]])
-typealias SelectStation = (line: String, direction: String, stationNamesArray: [[String:Any]])
+//typealias DirectionTuple = (scheduleName: String, directionName: String, stationTimes: [[String:Any]])
 
 class StationsVC: UIViewController {
     
@@ -79,16 +24,16 @@ class StationsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
-        
         getStationsForEachLine()
         updateHeader()
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! TimeVC
         var dictionary = [[String:Any]]()
+        print("station detail array count", stationDetailArray.count) //should be at least six...
         for x in stationDetailArray {
             let data = x.encode()
             dictionary.append(data)
@@ -111,7 +56,7 @@ class StationsVC: UIViewController {
             updateHeader()
             tableView.reloadData()
         } else {
-            performSegue(withIdentifier: "TimeVC", sender: nil)
+            performSegue(withIdentifier: "RevealVC", sender: nil)
         }
     }
 }
@@ -119,7 +64,12 @@ class StationsVC: UIViewController {
 extension StationsVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return stationArray[selectStationIndex].stationNamesArray.count
+        if stationArray.count == 0 {
+            return 0
+        } else {
+            return stationArray[selectStationIndex].stationNamesArray.count
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -150,7 +100,6 @@ extension StationsVC {
     }
     
     func getStationsForEachLine(){
-        
         for line in selectedLines {
             let lineName = line["name"] as! String
             let directions = line["directions"] as! [[String:Any]]
@@ -160,6 +109,8 @@ extension StationsVC {
                 stationArray.append((line: lineName, direction: directionName, stationNamesArray: allStations))
             }
         }
+        print(selectedLines.count, stationArray.count)
+        tableView.reloadData()
     }
     
     func createStationDetail(station: SelectStation, index: Int){

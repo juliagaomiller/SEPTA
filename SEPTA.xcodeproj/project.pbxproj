@@ -19,10 +19,17 @@
 		A32624C81E539383009DB121 /* ScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32624C71E539383009DB121 /* ScheduleCell.swift */; };
 		A32624CD1E53B029009DB121 /* TimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32624CC1E53B029009DB121 /* TimeCell.swift */; };
 		A3C376F21E56347F000C50B4 /* TimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C376F11E56347F000C50B4 /* TimeVC.swift */; };
-		A3C376F41E56365B000C50B4 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C376F31E56365B000C50B4 /* MenuView.swift */; };
 		A3C376F61E578FEF000C50B4 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C376F51E578FEF000C50B4 /* CustomButton.swift */; };
 		A3C376F91E58AEC9000C50B4 /* ChangeStationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C376F81E58AEC9000C50B4 /* ChangeStationCell.swift */; };
 		A3C376FB1E5B6418000C50B4 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C376FA1E5B6418000C50B4 /* Helper.swift */; };
+		A3C377051E5CAE18000C50B4 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C377041E5CAE18000C50B4 /* SWRevealViewController.m */; };
+		A3C377071E5CB0E0000C50B4 /* AllSchedulesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C377061E5CB0E0000C50B4 /* AllSchedulesVC.swift */; };
+		A3C377091E5CB0EC000C50B4 /* MySchedulesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C377081E5CB0EC000C50B4 /* MySchedulesVC.swift */; };
+		A3C3770D1E5CB1D9000C50B4 /* SEPTAMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C3770C1E5CB1D9000C50B4 /* SEPTAMapVC.swift */; };
+		A3C3770F1E5CB763000C50B4 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C3770E1E5CB763000C50B4 /* MenuVC.swift */; };
+		A3C377111E5CC7B3000C50B4 /* AllStationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C377101E5CC7B3000C50B4 /* AllStationsVC.swift */; };
+		A3C377131E5CC946000C50B4 /* AllScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C377121E5CC946000C50B4 /* AllScheduleCell.swift */; };
+		A3C377151E5CD1F1000C50B4 /* AllStationsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C377141E5CD1F1000C50B4 /* AllStationsCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,10 +47,19 @@
 		A32624C71E539383009DB121 /* ScheduleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleCell.swift; sourceTree = "<group>"; };
 		A32624CC1E53B029009DB121 /* TimeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeCell.swift; sourceTree = "<group>"; };
 		A3C376F11E56347F000C50B4 /* TimeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeVC.swift; sourceTree = "<group>"; };
-		A3C376F31E56365B000C50B4 /* MenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		A3C376F51E578FEF000C50B4 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		A3C376F81E58AEC9000C50B4 /* ChangeStationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeStationCell.swift; sourceTree = "<group>"; };
 		A3C376FA1E5B6418000C50B4 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		A3C377021E5CAE17000C50B4 /* SEPTA-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SEPTA-Bridging-Header.h"; sourceTree = "<group>"; };
+		A3C377031E5CAE18000C50B4 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		A3C377041E5CAE18000C50B4 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		A3C377061E5CB0E0000C50B4 /* AllSchedulesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllSchedulesVC.swift; sourceTree = "<group>"; };
+		A3C377081E5CB0EC000C50B4 /* MySchedulesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MySchedulesVC.swift; path = ../MySchedulesVC.swift; sourceTree = "<group>"; };
+		A3C3770C1E5CB1D9000C50B4 /* SEPTAMapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SEPTAMapVC.swift; sourceTree = SOURCE_ROOT; };
+		A3C3770E1E5CB763000C50B4 /* MenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
+		A3C377101E5CC7B3000C50B4 /* AllStationsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllStationsVC.swift; sourceTree = "<group>"; };
+		A3C377121E5CC946000C50B4 /* AllScheduleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllScheduleCell.swift; sourceTree = "<group>"; };
+		A3C377141E5CD1F1000C50B4 /* AllStationsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllStationsCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +92,7 @@
 		195BF3CC1E487D3200699E31 /* SEPTA */ = {
 			isa = PBXGroup;
 			children = (
+				A3C377011E5CADEC000C50B4 /* SWRevealViewController */,
 				195BF3CD1E487D3200699E31 /* AppDelegate.swift */,
 				195BF3D91E487D3200699E31 /* LaunchScreen.storyboard */,
 				A32624C91E539389009DB121 /* model */,
@@ -110,10 +127,13 @@
 		A32624CB1E5393A0009DB121 /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				A3C376F31E56365B000C50B4 /* MenuView.swift */,
-				195BF3E21E487E3B00699E31 /* SchedulesVC.swift */,
-				A31385741E550CC500137B6F /* StationsVC.swift */,
+				A3C377161E5CD2B9000C50B4 /* firstLaunch */,
+				A3C3770E1E5CB763000C50B4 /* MenuVC.swift */,
 				A3C376F11E56347F000C50B4 /* TimeVC.swift */,
+				A3C377061E5CB0E0000C50B4 /* AllSchedulesVC.swift */,
+				A3C377101E5CC7B3000C50B4 /* AllStationsVC.swift */,
+				A3C377081E5CB0EC000C50B4 /* MySchedulesVC.swift */,
+				A3C3770C1E5CB1D9000C50B4 /* SEPTAMapVC.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -121,12 +141,33 @@
 		A3C376F71E579065000C50B4 /* cells */ = {
 			isa = PBXGroup;
 			children = (
-				A32624C71E539383009DB121 /* ScheduleCell.swift */,
+				A3C377141E5CD1F1000C50B4 /* AllStationsCell.swift */,
 				A32624C51E53937B009DB121 /* StationCell.swift */,
+				A3C377121E5CC946000C50B4 /* AllScheduleCell.swift */,
+				A32624C71E539383009DB121 /* ScheduleCell.swift */,
 				A32624CC1E53B029009DB121 /* TimeCell.swift */,
 				A3C376F81E58AEC9000C50B4 /* ChangeStationCell.swift */,
 			);
 			name = cells;
+			sourceTree = "<group>";
+		};
+		A3C377011E5CADEC000C50B4 /* SWRevealViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A3C377031E5CAE18000C50B4 /* SWRevealViewController.h */,
+				A3C377041E5CAE18000C50B4 /* SWRevealViewController.m */,
+				A3C377021E5CAE17000C50B4 /* SEPTA-Bridging-Header.h */,
+			);
+			name = SWRevealViewController;
+			sourceTree = "<group>";
+		};
+		A3C377161E5CD2B9000C50B4 /* firstLaunch */ = {
+			isa = PBXGroup;
+			children = (
+				195BF3E21E487E3B00699E31 /* SchedulesVC.swift */,
+				A31385741E550CC500137B6F /* StationsVC.swift */,
+			);
+			name = firstLaunch;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,6 +202,7 @@
 				TargetAttributes = {
 					195BF3C91E487D3200699E31 = {
 						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -202,18 +244,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3C377051E5CAE18000C50B4 /* SWRevealViewController.m in Sources */,
 				A32624C61E53937B009DB121 /* StationCell.swift in Sources */,
 				A32624CD1E53B029009DB121 /* TimeCell.swift in Sources */,
+				A3C377151E5CD1F1000C50B4 /* AllStationsCell.swift in Sources */,
 				195BF3E31E487E3B00699E31 /* SchedulesVC.swift in Sources */,
+				A3C377131E5CC946000C50B4 /* AllScheduleCell.swift in Sources */,
+				A3C377111E5CC7B3000C50B4 /* AllStationsVC.swift in Sources */,
 				A3C376F91E58AEC9000C50B4 /* ChangeStationCell.swift in Sources */,
+				A3C3770F1E5CB763000C50B4 /* MenuVC.swift in Sources */,
 				195BF3CE1E487D3200699E31 /* AppDelegate.swift in Sources */,
 				A3C376F61E578FEF000C50B4 /* CustomButton.swift in Sources */,
-				A3C376F41E56365B000C50B4 /* MenuView.swift in Sources */,
 				A31385751E550CC500137B6F /* StationsVC.swift in Sources */,
+				A3C377071E5CB0E0000C50B4 /* AllSchedulesVC.swift in Sources */,
 				195BF3D61E487D3200699E31 /* SEPTA.xcdatamodeld in Sources */,
+				A3C377091E5CB0EC000C50B4 /* MySchedulesVC.swift in Sources */,
 				A32624C81E539383009DB121 /* ScheduleCell.swift in Sources */,
 				A3C376F21E56347F000C50B4 /* TimeVC.swift in Sources */,
 				A3C376FB1E5B6418000C50B4 /* Helper.swift in Sources */,
+				A3C3770D1E5CB1D9000C50B4 /* SEPTAMapVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,10 +383,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = SEPTA/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JuliaGaoMiller.SEPTA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SEPTA/SEPTA-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -346,10 +398,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = SEPTA/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JuliaGaoMiller.SEPTA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SEPTA/SEPTA-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

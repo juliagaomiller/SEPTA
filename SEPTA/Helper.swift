@@ -6,7 +6,17 @@
 //  Copyright © 2017 Julia Miller. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+var lines = [[String:Any]]()
+var favoritedLines = [[String:Any]]()
+let revealViewControllerWidth: CGFloat = 250
+
+let lightGreen = UIColor(red:0.40, green:1.00, blue:0.40, alpha:0.3)
+let lightLightGreen = UIColor(red:0.40, green:1.00, blue:0.40, alpha:0.2)
+let lightLightLightGreen = UIColor(red:0.40, green:1.00, blue:0.40, alpha:0.1)
+
+typealias SelectStation = (line: String, direction: String, stationNamesArray: [[String:Any]])
 
 func getDayOfWeek(date: Date)->String {
     let cal = Calendar(identifier: .gregorian)
@@ -22,6 +32,18 @@ func getDayOfWeek(date: Date)->String {
     }
 }
 
+func calculateTimeInMinutesUntilDepartureTime(hhmm: String)->Int{
+    let df = DateFormatter()
+    let currentTime = Date()
+    var currentDay = currentTime.string(format: "MM/dd/yy ")
+    currentDay = currentDay + hhmm
+    df.dateFormat = "MM/dd/yy hh:mm a"
+    let stationTime = df.date(from: currentDay)
+    if stationTime == nil {fatalError("stationTime is nil!")}
+    let difference = currentTime.minutes(from: stationTime!)
+    return difference
+}
+
 extension Date {
     func minutes(from date: Date) -> Int {
         return Calendar.current.dateComponents([.minute], from: date, to: self).minute ?? 0
@@ -33,4 +55,43 @@ extension Date {
         let string = df.string(from: self)
         return string
     }
+}
+
+struct StationDetail {
+    var scheduleName: String //e.g. Chestnut Hill West
+    var stationName: String //e.g. Allen Lane
+    var direction: String //e.g. -> Center City
+    var dayOfWeekSchedule: String //e.g. weekday
+    var timesArray: [String] // e.g. 5:55 AM, 7:30 AM...
+    
+    init(scheduleName: String,
+         stationName: String,
+         direction: String,
+         dayOfWeekSchedule: String,
+         timesArray: [String]){
+        self.scheduleName = scheduleName
+        self.stationName = stationName
+        self.direction = direction
+        self.dayOfWeekSchedule = dayOfWeekSchedule
+        self.timesArray = timesArray
+    }
+    
+    public init(dict: [String:Any]){
+        scheduleName = dict["scheduleName"] as! String
+        stationName = dict["stationName"] as! String
+        direction = dict["direction"] as! String
+        dayOfWeekSchedule = dict["dayOfWeekSchedule"] as! String
+        timesArray = dict["timesArray"] as! [String]
+    }
+    
+    public func encode() -> [String:Any]{
+        var dict = [String:Any]()
+        dict["scheduleName"] = scheduleName
+        dict["stationName"] = stationName
+        dict["direction"] = direction
+        dict["dayOfWeekSchedule"] = dayOfWeekSchedule
+        dict["timesArray"] = timesArray
+        return dict
+    }
+    
 }
