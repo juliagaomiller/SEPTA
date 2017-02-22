@@ -20,25 +20,27 @@ class TimeVC: UIViewController {
     
     var savedStationsDict = [[String:Any]]()
     
-    var stationTimes = [String]()
+    var currentStation: StationDetail!
+    var stationTimes: [String: [String]] = ["":[""]]
+    
     
     var stationDetailArray = [StationDetail]()
     var weekDayStations = [StationDetail]()
-    var currentStation: StationDetail!
-
-    var currentDayOfWeek = "weekday"
+    
+    var stationSchedules = [StationDetail]()
+    
+    var currentDayOfWeek = ""
     
     var timeIndex = 0
     var stationDetailIndex = 0
-//    var dayOfWeekIndex = 0
+    //    var dayOfWeekIndex = 0
     
     var switchStationMode = false
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.isHidden = true
-        loadRailLines()
         
+        loadRailLines()
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -60,16 +62,37 @@ class TimeVC: UIViewController {
         if segue.identifier == "StationsVC" {
             let vc = segue.destination as! StationsVC
             vc.selectedLines = sender as! [[String:Any]]
-            
         }
+    }
+    
+    @IBAction func switchWeekSchedules(){
+        switch(currentDayOfWeek){
+        case "weekday":
+            if stationSchedules.count == 2 {
+                currentDayOfWeek = "weekend"
+            } else if stationSchedules.count == 3 {
+                currentDayOfWeek = "saturday"
+            }
+        case "weekend":
+            currentDayOfWeek = "weekday"
+        case "saturday":
+            currentDayOfWeek = "sunday"
+        case "sunday":
+            currentDayOfWeek = "weekday"
+        default:
+            fatalError("\(currentDayOfWeek)")
+        }
+        tableView.reloadData()
     }
     
     @IBAction func switchStations(){
         switchStationMode = true
+        displayStation(stationName: currentStation.stationName,
+                       direction: currentStation.direction)
         reloadView()
         tableView.reloadData()
     }
-
+    
 }
 
 extension TimeVC: UITableViewDataSource, UITableViewDelegate {
@@ -78,7 +101,11 @@ extension TimeVC: UITableViewDataSource, UITableViewDelegate {
         if switchStationMode {
             return weekDayStations.count
         } else {
-            return stationTimes.count
+            if stationTimes[currentDayOfWeek]!.count == 1 {
+                return 0
+            } else {
+                return stationTimes[currentDayOfWeek]!.count
+            }
         }
         
     }
@@ -93,18 +120,18 @@ extension TimeVC: UITableViewDataSource, UITableViewDelegate {
             let cell = tableView.dequeueReusableCell(withIdentifier: "TimeCell") as! TimeCell
             cell.backgroundColor = UIColor.white
             cell.countdownTimeLabel.font = UIFont.systemFont(ofSize: 12)
-            cell.configure(departureTime: stationTimes[indexPath.row])
+            cell.configure(departureTime: stationTimes[currentDayOfWeek]![indexPath.row])
             if indexPath.row == timeIndex {
                 cell.backgroundColor = lightGreen
                 cell.countdownTimeLabel.font = UIFont.systemFont(ofSize: 18)
-            } else if timeIndex < stationTimes.count - 2 && indexPath.row == timeIndex + 1 {
+            } else if timeIndex < stationTimes[currentDayOfWeek]!.count - 2 && indexPath.row == timeIndex + 1 {
                 cell.countdownTimeLabel.font = UIFont.systemFont(ofSize: 16)
                 cell.backgroundColor = lightLightLightGreen
             }
             return cell
         }
     }
-
+    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if switchStationMode {
@@ -114,14 +141,14 @@ extension TimeVC: UITableViewDataSource, UITableViewDelegate {
             let direction = cell.directionLabel.text
             for x in weekDayStations {
                 if x.stationName == station && x.direction == direction {
-                    displayStation(station: x)
+                    displayStation(stationName: x.stationName, direction: x.direction)
                     reloadView()
                 }
             }
             
         } else {
             //we are on the train times and we can either see how long it will take to get to one of our favorited stations.
-            //make an alert view pop up telling distances, or reload tableview. 
+            //make an alert view pop up telling distances, or reload tableview.
             //OR look at apple documentation and remember to try to do the dropdown menu
             
             //or we can set up a notification
@@ -142,10 +169,10 @@ extension TimeVC {
             savedStationsDict.removeAll()
             savedStationsDict = stationsExist
             checkForSavedStations()
-            createWeekStations(dayOfWeek: currentDayOfWeek)
+            //            createWeekStations(dayOfWeek: currentDayOfWeek)
             displayCurrentDate()
             displayClosestStation()
-            self.view.isHidden = false
+            //            self.view.isHidden = false
         } else if let linesExist = UserDefaults.standard.object(forKey: "selectedLines") as? [[String:Any]] {
             performSegue(withIdentifier: "StationsVC", sender: linesExist)
         } else {
@@ -178,42 +205,78 @@ extension TimeVC {
         }
     }
     
-    func createWeekStations(dayOfWeek: String){
-        for station in stationDetailArray {
-            if dayOfWeek == "weekend" {
-                if station.dayOfWeekSchedule == "saturday"
-                    || station.dayOfWeekSchedule == "sunday"
-                    || station.dayOfWeekSchedule == "weekend" {
-                    weekDayStations.append(station)
-                }
-            } else {
-                if station.dayOfWeekSchedule == dayOfWeek {
-                    weekDayStations.append(station)
-                }
-            }
-        }
-        weekDayStations = weekDayStations.sorted{$0.stationName < $1.stationName}
-    }
+    //    func createWeekStations(dayOfWeek: String){
+    //        for station in stationDetailArray {
+    //            if dayOfWeek == "weekend" {
+    //                if station.dayOfWeekSchedule == "saturday"
+    //                    || station.dayOfWeekSchedule == "sunday"
+    //                    || station.dayOfWeekSchedule == "weekend" {
+    //                    weekDayStations.append(station)
+    //                }
+    //            } else {
+    //                if station.dayOfWeekSchedule == dayOfWeek {
+    //                    weekDayStations.append(station)
+    //                }
+    //            }
+    //        }
+    //        weekDayStations = weekDayStations.sorted{$0.stationName < $1.stationName}
+    //    }
     func findClosestStation(){
         //returns a StationDetail
     }
     
     func displayClosestStation(){
-        findClosestStation()
-        displayStation(station: stationDetailArray[0])
+        findClosestStation() // returns a string
+        
+        let station = stationDetailArray[0]
+        displayStation(stationName: station.stationName, direction: station.direction)
     }
     
-    func displayStation(station: StationDetail){
-        currentStation = station
-        lineNameLabel.text = station.stationName
-        directionLabel.text = station.direction
-        if station.timesArray.count != 0 {
-            stationTimes = station.timesArray
+    func displayStation(stationName: String, direction: String){
+        
+        var station: StationDetail?
+        var timeArray: [String] = []
+        
+        stationSchedules.removeAll()
+        for s in stationDetailArray {
+            print(s.stationName, s.direction, s.dayOfWeekSchedule)
+            print(stationDetailArray.count)
+            if s.direction == direction && s.stationName == stationName {
+                print(s.direction)
+                stationSchedules.append(s)
+            }
+        }
+        if currentDayOfWeek == "" {
+            let today = Date()
+            if stationSchedules.count == 2 {
+                currentDayOfWeek = getDayOfWeek(date: today, returnSatSun: false)
+                
+            } else if stationSchedules.count == 3 {
+                currentDayOfWeek = getDayOfWeek(date: today, returnSatSun: true)
+            } else {
+                fatalError("\(stationSchedules.count)")
+            }
+        }
+        
+        
+        for s in stationSchedules {
+            if s.dayOfWeekSchedule == currentDayOfWeek {
+                station = s
+                timeArray = s.timesArray
+                
+            }
+        }
+        
+        if station!.timesArray.count != 0 {
+            stationTimes = [currentDayOfWeek: timeArray]
             tableView.reloadData()
             setCorrectTimeIndex()
-            
         }
+        
+        lineNameLabel.text = station!.stationName
+        directionLabel.text = station!.direction
     }
+    
     func checkForSavedStations(){
         if savedStationsDict.count != 0 {
             stationDetailArray.removeAll()
@@ -231,17 +294,17 @@ extension TimeVC {
         df.pmSymbol = "PM"
         let time = df.string(from: currentDate)
         df.dateFormat = "MMM dd, yyyy"
-        let weekday = getDayOfWeek(date: currentDate)
-        currentDayOfWeek = weekday
+        //        let weekday = getDayOfWeek(date: currentDate)
+        //        currentDayOfWeek = weekday
         let dateString = df.string(from: currentDate)
         currentTimeLabel.text = time
         currentDayLabel.text = dateString
     }
-
+    
     func setCorrectTimeIndex(){
         var i = 0
         var previousDifferenceWasPositive = true
-        for time in stationTimes {
+        for time in stationTimes[currentDayOfWeek]! {
             let difference = calculateTimeInMinutesUntilDepartureTime(hhmm: time)
             
             if difference < 0 && previousDifferenceWasPositive {

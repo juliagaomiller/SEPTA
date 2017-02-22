@@ -18,16 +18,24 @@ let lightLightLightGreen = UIColor(red:0.40, green:1.00, blue:0.40, alpha:0.1)
 
 typealias SelectStation = (line: String, direction: String, stationNamesArray: [[String:Any]])
 
-func getDayOfWeek(date: Date)->String {
+func getDayOfWeek(date: Date, returnSatSun: Bool)->String {
     let cal = Calendar(identifier: .gregorian)
     let weekday = cal.component(.weekday, from: date)
     switch(weekday){
     case 1:
-        return "weekend"
+        if returnSatSun {
+            return "sunday"
+        } else {
+           return "weekend"
+        }
     case 2...6:
         return "weekday"
     case 7:
-        return "weekend"
+        if returnSatSun {
+            return "saturday"
+        } else {
+           return "weekend"
+        }
     default: fatalError("\(weekday)")
     }
 }

@@ -30,23 +30,18 @@ class StationsVC: UIViewController {
         tableView.dataSource = self
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as! TimeVC
-        var dictionary = [[String:Any]]()
-        print("station detail array count", stationDetailArray.count) //should be at least six...
-        for x in stationDetailArray {
-            let data = x.encode()
-            dictionary.append(data)
-        }
-        UserDefaults.standard.set(dictionary, forKey: "stationDetailArray")
-        vc.stationDetailArray = stationDetailArray
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let vc = segue.destination as! TimeVC
+//        
+//        print("station detail array count", stationDetailArray.count) //should be at least six...
+//
+//        vc.stationDetailArray = stationDetailArray
+//    }
     
     @IBAction func next(){
         let cells = tableView.visibleCells
         for cell in cells {
             if cell.accessoryType != .none {
-                print("saved a station")
                 let stationCell = cell as! StationCell
                 createStationDetail(station: stationCell.station, index: stationCell.index)
             }
@@ -57,6 +52,12 @@ class StationsVC: UIViewController {
             updateHeader()
             tableView.reloadData()
         } else {
+            var dictionary = [[String:Any]]()
+            for x in stationDetailArray {
+                let data = x.encode()
+                dictionary.append(data)
+            }
+            UserDefaults.standard.set(dictionary, forKey: "stationDetailArray")
             performSegue(withIdentifier: "RevealVC", sender: nil)
         }
     }
@@ -110,7 +111,6 @@ extension StationsVC {
                 stationArray.append((line: lineName, direction: directionName, stationNamesArray: allStations))
             }
         }
-        print(selectedLines.count, stationArray.count)
         tableView.reloadData()
     }
     
@@ -119,7 +119,6 @@ extension StationsVC {
         let direction = station.direction
         
         let stationName = (station.stationNamesArray[index]["name"] as! String)
-        print(stationName)
         var weekHours = station.stationNamesArray[index]
         weekHours.removeValue(forKey: "name")
         for schedule in weekHours {
@@ -129,7 +128,7 @@ extension StationsVC {
                 stationDetail = StationDetail(scheduleName: scheduleName, stationName: stationName, direction: direction, dayOfWeekSchedule: dayOfWeekSchedule, timesArray: [""])
                 break
             }
-            print(stationName)
+            //print(stationNam
             stationDetail = StationDetail(scheduleName: scheduleName, stationName: stationName, direction: direction, dayOfWeekSchedule: dayOfWeekSchedule, timesArray: timesArray)
             stationDetailArray.append(stationDetail)
         }

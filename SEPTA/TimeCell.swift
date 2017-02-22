@@ -20,11 +20,19 @@ class TimeCell: UITableViewCell {
             if minutes == 60 {
                 return "1:00"
             } else if minutes < 60 {
-                return "0:\(minutes)"
+                if minutes < 10 {
+                    return "0:0\(minutes)"
+                } else {
+                  return "0:\(minutes)"
+                }
             } else if minutes > 60 {
                 let min = minutes % 60
                 let hr = minutes / 60
-                return "\(hr):\(min)"
+                if min < 10 {
+                    return "\(hr):0\(min)"
+                } else {
+                    return "\(hr):\(min)"
+                }
             }
         } else {
             return ""
@@ -33,6 +41,7 @@ class TimeCell: UITableViewCell {
     }
     
     func configure(departureTime: String){
+        print(departureTime)
         departureTimeLabel.text = departureTime
         countdownTimeLabel.text = calculateTimeUntilDepartureTime(hhmm: departureTime)
     }
