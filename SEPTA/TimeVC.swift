@@ -50,7 +50,10 @@ class TimeVC: UIViewController {
             self.revealViewController().rearViewRevealWidth = revealViewControllerWidth
         }
         
-        
+        _ = Timer.scheduledTimer(timeInterval: 10.0, target: self,
+                                                           selector: #selector(displayCurrentDate),
+                                                           userInfo: nil,
+                                                           repeats: true)
         
         
     }
@@ -288,6 +291,7 @@ extension TimeVC {
             }
         }
     }
+    
     func displayCurrentDate(){
         let currentDate = Date()
         let df = DateFormatter()
@@ -299,6 +303,7 @@ extension TimeVC {
         let dateString = df.string(from: currentDate)
         currentTimeLabel.text = time
         currentDayLabel.text = dateString
+        tableView.reloadData()
     }
     
     func setCorrectTimeIndex(){
