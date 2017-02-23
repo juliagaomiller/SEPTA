@@ -58,14 +58,10 @@ class TimeVC: UIViewController {
     func compileStations(){
         var i = 0
         for x in stationDetailArray {
-            
             if compiledStations.count == 0 {
                 compiledStations.append(x)
             } else if x.direction != stationDetailArray[i-1].direction
-                && x.stationName != stationDetailArray[i-1].stationName{
-//                print(x.direction, stationDetailArray[i-1].direction,
-//                      x.stationName, stationDetailArray[i-1].stationName,
-//                      x.scheduleName, stationDetailArray[i-1].scheduleName)
+                || x.stationName != stationDetailArray[i-1].stationName{
                 compiledStations.append(x)
             }
             i += 1
@@ -107,13 +103,13 @@ class TimeVC: UIViewController {
         text = text.capitalized
         dayOfWeekScheduleLabel.text = "\(text) Schedule →"
         setCorrectTimeIndex()
-        tableView.reloadData()
+        tableView.reloadSections(NSIndexSet(index: 0) as IndexSet, with: .left)
     }
     
     @IBAction func switchStations(){
         switchStationMode = true
         reloadView()
-        tableView.reloadData()
+        tableView.reloadSections(NSIndexSet(index: 0) as IndexSet, with: .fade)
     }
     
     func displayStation(stationName: String, direction: String, scheduleName: String){
@@ -124,7 +120,7 @@ class TimeVC: UIViewController {
                 stationSchedules.append(s)
             }
         }
-        if stationSchedules.count != 2 {fatalError("\(stationSchedules.count)")}
+        if stationSchedules.count > 3 {fatalError("\(stationSchedules.count)")}
         
         if currentDayOfWeek == "" {
             //we just loaded the page, so the default would the day of week
@@ -152,6 +148,7 @@ class TimeVC: UIViewController {
         lineNameLabel.text = stationName
         directionLabel.text = direction
         tableView.reloadData()
+//        tableView.reloadSections(NSIndexSet(index: 0) as IndexSet, with: .automatic)
         setCorrectTimeIndex()
         
     }
@@ -173,6 +170,7 @@ extension TimeVC: UITableViewDataSource, UITableViewDelegate {
         
     }
     
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if switchStationMode {
             let station = compiledStations[indexPath.row]
@@ -210,6 +208,7 @@ extension TimeVC: UITableViewDataSource, UITableViewDelegate {
                     reloadView()
                 }
             }
+            
             
         } else {
             //we are on the train times and we can either see how long it will take to get to one of our favorited stations.
@@ -312,8 +311,8 @@ extension TimeVC {
     
                 timeIndex = i
                 previousDifferenceWasPositive = false
-                tableView.scrollToRow(at: IndexPath.init(row: timeIndex, section: 0), at: .top, animated: false)
                 tableView.reloadData()
+                tableView.scrollToRow(at: IndexPath.init(row: timeIndex, section: 0), at: .top, animated: false)
             }
             i += 1
         }

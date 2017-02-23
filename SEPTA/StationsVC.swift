@@ -39,7 +39,7 @@ class StationsVC: UIViewController {
         selectStationIndex += 1
         if selectStationIndex < stationArray.count {
             updateHeader()
-            tableView.reloadData()
+            tableView.reloadSections(NSIndexSet(index: 0) as IndexSet, with: .left)
         } else {
             var dictionary = [[String:Any]]()
             for x in stationDetailArray {
@@ -86,7 +86,7 @@ extension StationsVC: UITableViewDataSource, UITableViewDelegate {
 extension StationsVC {
     func updateHeader(){
         if selectStationIndex < stationArray.count {
-            directionLabel.text = "\(stationArray[selectStationIndex].line) Line → \(stationArray[selectStationIndex].direction)"
+            directionLabel.text = "\(stationArray[selectStationIndex].line) Line \(stationArray[selectStationIndex].direction)"
         }
     }
     

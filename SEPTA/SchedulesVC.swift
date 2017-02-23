@@ -19,8 +19,12 @@ class SchedulesVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         loadRailCells()
-        showOkayAlertView(message: "Welcome to the digital version of the SEPTA Regional Rail Schedules. Please select at least one schedule.")
         tableView.reloadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        showOkayAlertView(message: "Welcome to the digital version of the SEPTA Regional Rail Schedules!", okay: "Thanks")
     }
     
     @IBAction func next(){
@@ -34,14 +38,17 @@ class SchedulesVC: UIViewController {
             index += 1
         }
         if favoritedLines.count == 0 {
-            showOkayAlertView(message: "Please select at least one schedule")
+            showOkayAlertView(message: "Please select at least one schedule.", okay: "Okay")
         } else {
             performSegue(withIdentifier: "StationsVC", sender: nil)
         }
     }
     
-    func showOkayAlertView(message: String){
-        //NEXT
+    func showOkayAlertView(message: String, okay: String){
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: okay, style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
