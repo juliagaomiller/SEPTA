@@ -47,7 +47,6 @@ class AllStationsVC: UIViewController {
     }
     
     func createStationNames(){
-//        print(selectedStation)
         var i = 0
         for x in selectedStation {
             let stations = x["stations"] as! [[String:Any]]
@@ -124,11 +123,6 @@ extension AllStationsVC: UITableViewDelegate, UITableViewDataSource {
         } else {
             //stationdirecitonsarray[2]
         }
-        //i need to create 2-3 station details to be segued into timeVC.
-        //I chose a specific station, --> need to go to this stations specific
-        //I 
-        //print(selectedStation)
-        //createStationDetail(dict: selectedStation)
 
 
     }

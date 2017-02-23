@@ -40,15 +40,15 @@ func getDayOfWeek(date: Date, returnSatSun: Bool)->String {
     }
 }
 
-func calculateTimeInMinutesUntilDepartureTime(hhmm: String)->Int{
+func calculateTimeInMinutesUntilDepartureTime(departureTime: String)->Int{
     let df = DateFormatter()
     let currentTime = Date()
-    var currentDay = currentTime.string(format: "MM/dd/yy ")
-    currentDay = currentDay + hhmm
+    let currentDay = currentTime.string(format: "MM/dd/yy")
+    let stationTimeString = currentDay + " " + departureTime
     df.dateFormat = "MM/dd/yy hh:mm a"
-    let stationTime = df.date(from: currentDay)
-    if stationTime == nil {fatalError("stationTime is nil!")}
-    let difference = currentTime.minutes(from: stationTime!)
+    let stationTimeDate = df.date(from: stationTimeString)
+    guard let _ =  stationTimeDate else {fatalError("stationTime is nil!")}
+    let difference = currentTime.minutes(from: stationTimeDate!)
     return difference
 }
 

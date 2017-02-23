@@ -13,8 +13,8 @@ class TimeCell: UITableViewCell {
     @IBOutlet var departureTimeLabel: UILabel!
     @IBOutlet var countdownTimeLabel: UILabel!
     
-    func calculateTimeUntilDepartureTime(hhmm: String)->String{
-        var minutes = calculateTimeInMinutesUntilDepartureTime(hhmm: hhmm)
+    func calculateTimeUntilDepartureTime(departureTime: String)->String{
+        var minutes = calculateTimeInMinutesUntilDepartureTime(departureTime: departureTime)
         if minutes < 0 {
             minutes = abs(minutes)
             if minutes == 60 {
@@ -41,9 +41,9 @@ class TimeCell: UITableViewCell {
     }
     
     func configure(departureTime: String){
-        print(departureTime)
+        countdownTimeLabel.text = ""
         departureTimeLabel.text = departureTime
-        countdownTimeLabel.text = calculateTimeUntilDepartureTime(hhmm: departureTime)
+        countdownTimeLabel.text = calculateTimeUntilDepartureTime(departureTime: departureTime)
     }
     
     

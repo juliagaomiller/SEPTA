@@ -16,15 +16,14 @@ class SchedulesVC: UIViewController {
     var scheduleCells = [ScheduleCell]()
     
     override func viewDidLoad() {
-//        self.view.isHidden = true
         tableView.delegate = self
         tableView.dataSource = self
         loadRailCells()
+        showOkayAlertView(message: "Welcome to the digital version of the SEPTA Regional Rail Schedules. Please select at least one schedule.")
         tableView.reloadData()
     }
     
     @IBAction func next(){
-        //MAKE SURE THAT AT LEAST ONE SCHEDULE HAS BEEN SELECTED
         var index = 0
         favoritedLines.removeAll()
         for cell in scheduleCells {
@@ -34,14 +33,20 @@ class SchedulesVC: UIViewController {
             }
             index += 1
         }
-        performSegue(withIdentifier: "StationsVC", sender: nil)
-        
+        if favoritedLines.count == 0 {
+            showOkayAlertView(message: "Please select at least one schedule")
+        } else {
+            performSegue(withIdentifier: "StationsVC", sender: nil)
+        }
+    }
+    
+    func showOkayAlertView(message: String){
+        //NEXT
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             let vc = segue.destination as! StationsVC
             UserDefaults.standard.set(favoritedLines, forKey: "favoritedLines")
-//        print(favoritedLines.count)
             vc.selectedLines = favoritedLines
     }
     
@@ -50,15 +55,10 @@ class SchedulesVC: UIViewController {
 extension SchedulesVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-//        return lines.count
         return scheduleCells.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "ScheduleCell")!
-//        cell.textLabel?.text = lines[indexPath.row]["name"] as! String?
-//        return cell
         return scheduleCells[indexPath.row]
     }
     
@@ -84,20 +84,6 @@ extension SchedulesVC {
         }
 
     }
-    
-//    func loadRailLines(){
-//        if let path = Bundle.main.path(forResource: "septa", ofType: "json") {
-//            if let json = try? Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe){
-//                if let data = try? JSONSerialization.jsonObject(with: json)
-//                {
-//                    if let all = data as? [String:Any] {
-//                        lines = all["lines"] as! [[String:Any]]
-//
-//                    }
-//                } else { print("Couldn't convert file from JSON data to Any. Check your JSON file for errors.") }
-//            }
-//        }
-//    }
     
     
 }

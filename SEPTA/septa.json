@@ -68,7 +68,7 @@
           "name" : "→ Center City",
           "stations" : [
             {
-              "name": "Chestnut Hill East",
+              "name": "Chestnut Hill East Station",
               "weekday":[
                 "5:45 AM",
                 "6:25 AM",
@@ -117,34 +117,34 @@
               ]
             },
             {
-              "name": "Gravers"
+              "name": "Gravers Station"
             },
             {
-              "name": "Windmoor"
+              "name": "Windmoor Station"
             },
             {
-              "name": "Mount Airy"
+              "name": "Mount Airy Station"
             },
             {
-              "name": "Sedgwick"
+              "name": "Sedgwick Station"
             },
             {
-              "name": "Stenton"
+              "name": "Stenton Station"
             },
             {
-              "name": "Washington Lane"
+              "name": "Washington Lane Station"
             },
             {
-              "name": "Germantown"
+              "name": "Germantown Station"
             },
             {
-              "name": "Wister"
+              "name": "Wister Station"
             },
             {
-              "name": "Wayne Junction"
+              "name": "Wayne Junction Station"
             },
             {
-              "name": "Temple University"
+              "name": "Temple University Station"
             },
             {
               "name": "Jefferson Station"
@@ -161,15 +161,15 @@
           "name" : "→ Chestnut Hill East",
           "stations" : [
             {
-              "name": "University City",
+              "name": "University City Station",
               "weekday": ""
             },
             {
-              "name": "30th Street",
+              "name": "30th Street Station",
               "weekday": ""
             },
             {
-              "name": "Suburban",
+              "name": "Suburban Station",
               "weekday": [
                 "6:47 AM",
                 "7:41 AM",
@@ -217,7 +217,7 @@
               ]
             },
             {
-              "name": "Jefferson",
+              "name": "Jefferson Station",
               "weekday": [
                 "6:52 AM",
                 "7:46 AM",
@@ -265,47 +265,47 @@
               ]
             },
             {
-              "name": "Temple University",
+              "name": "Temple University Station",
               "weekday": ""
             },
             {
-              "name": "Wayne Junction",
+              "name": "Wayne Junction Station",
               "weekday": ""
             },
             {
-              "name": "Wister",
+              "name": "Wister Station",
               "weekday": ""
             },
             {
-              "name": "Germantown",
+              "name": "Germantown Station",
               "weekday": ""
             },
             {
-              "name": "Washington Lane",
+              "name": "Washington Lane Station",
               "weekday": ""
             },
             {
-              "name": "Stenton",
+              "name": "Stenton Station",
               "weekday": ""
             },
             {
-              "name": "Sedgwick",
+              "name": "Sedgwick Station",
               "weekday": ""
             },
             {
-              "name": "Mount Airy",
+              "name": "Mount Airy Station",
               "weekday": ""
             },
             {
-              "name": "Wyndmoor",
+              "name": "Wyndmoor Station",
               "weekday": ""
             },
             {
-              "name": "Gravers",
+              "name": "Gravers Station",
               "weekday": ""
             },
             {
-              "name": "Chestnut Hill East",
+              "name": "Chestnut Hill East Station",
               "weekday": ""
             }
           ]
@@ -318,7 +318,7 @@
           "name": "→ Center City",
           "stations": [
             {
-              "name": "Chestnut Hill West",
+              "name": "Chestnut Hill West Station",
               "weekday": [
                 "5:55 AM",
                 "6:28 AM",
@@ -379,55 +379,55 @@
               ]
             },
             {
-              "name": "Highland",
+              "name": "Highland Station",
               "weekday": ""
             },
             {
-              "name": "St Martins",
+              "name": "St Martins Station",
               "weekday": ""
             },
             {
-              "name": "Allen Lane",
+              "name": "Allen Lane Station",
               "weekday": ""
             },
             {
-              "name": "Carpenter",
+              "name": "Carpenter Station",
               "weekday": ""
             },
             {
-              "name": "Upsal",
+              "name": "Upsal Station",
               "weekday": ""
             },
             {
-              "name": "Tulpehocken",
+              "name": "Tulpehocken Station",
               "weekday": ""
             },
             {
-              "name": "Chelten Avenue",
+              "name": "Chelten Avenue Station",
               "weekday": ""
             },
             {
-              "name": "Queen Lane",
+              "name": "Queen Lane Station",
               "weekday": ""
             },
             {
-              "name": "North Philadelphia",
+              "name": "North Philadelphia Station",
               "weekday": ""
             },
             {
-              "name": "30th Street",
+              "name": "30th Street Station",
               "weekday": ""
             },
             {
-              "name": "Suburban",
+              "name": "Suburban Station",
               "weekday": ""
             },
             {
-              "name": "Jefferson",
+              "name": "Jefferson Station",
               "weekday": ""
             },
             {
-              "name": "Temple University",
+              "name": "Temple University Station",
               "weekday": ""
             }
           ]
@@ -436,10 +436,10 @@
           "name": "→ Chestnut Hill West",
           "stations": [
             {
-              "name" : "Temple University"
+              "name" : "Temple University Station"
             },
             {
-              "name" : "Jefferson",
+              "name" : "Jefferson Station",
                 "weekday" : [
                   "6:42 AM",
                   "7:11 AM",
@@ -562,47 +562,47 @@
               ]
             },
             {
-              "name" : "30th Street",
+              "name" : "30th Street Station",
               "weekday": ""
             },
             {
-              "name" : "North Philadelphia",
+              "name" : "North Philadelphia Station",
               "weekday": ""
             },
             {
-              "name" : "Queen Lane",
+              "name" : "Queen Lane Station",
               "weekday": ""
             },
             {
-              "name" : "Chelten Avenue",
+              "name" : "Chelten Avenue Station",
               "weekday": ""
             },
             {
-              "name" : "Tulpehocken",
+              "name" : "Tulpehocken Station",
               "weekday": ""
             },
             {
-              "name" : "Upsal",
+              "name" : "Upsal Station",
               "weekday": ""
             },
             {
-              "name" : "Carpenter",
+              "name" : "Carpenter Station",
               "weekday": ""
             },
             {
-              "name" : "Allen Lane",
+              "name" : "Allen Lane Station",
               "weekday": ""
             },
             {
-              "name" : "St Martins",
+              "name" : "St Martins Station",
               "weekday": ""
             },
             {
-              "name" : "Highland",
+              "name" : "Highland Station",
               "weekday": ""
             },
             {
-              "name" : "Chestnut Hill West",
+              "name" : "Chestnut Hill West Station",
               "weekday": ""
             }
           ]

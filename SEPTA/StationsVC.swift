@@ -8,8 +8,6 @@
 
 import UIKit
 
-//typealias DirectionTuple = (scheduleName: String, directionName: String, stationTimes: [[String:Any]])
-
 class StationsVC: UIViewController {
     
     @IBOutlet var tableView: UITableView!
@@ -17,7 +15,6 @@ class StationsVC: UIViewController {
     
     var selectStationIndex = 0
     var stationArray = [SelectStation]()
-//    var selectedStationsArray = [SelectStation]()
     var stationDetailArray = [StationDetail]()
     
     var selectedLines = [[String:Any]]()
@@ -29,14 +26,6 @@ class StationsVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let vc = segue.destination as! TimeVC
-//        
-//        print("station detail array count", stationDetailArray.count) //should be at least six...
-//
-//        vc.stationDetailArray = stationDetailArray
-//    }
     
     @IBAction func next(){
         let cells = tableView.visibleCells
@@ -97,7 +86,7 @@ extension StationsVC: UITableViewDataSource, UITableViewDelegate {
 extension StationsVC {
     func updateHeader(){
         if selectStationIndex < stationArray.count {
-            directionLabel.text = stationArray[selectStationIndex].direction
+            directionLabel.text = "\(stationArray[selectStationIndex].line) Line → \(stationArray[selectStationIndex].direction)"
         }
     }
     
@@ -128,7 +117,7 @@ extension StationsVC {
                 stationDetail = StationDetail(scheduleName: scheduleName, stationName: stationName, direction: direction, dayOfWeekSchedule: dayOfWeekSchedule, timesArray: [""])
                 break
             }
-            //print(stationNam
+            print("created StationDetail, scheduleName: \(scheduleName), stationName: \(stationName), direction: \(direction)")
             stationDetail = StationDetail(scheduleName: scheduleName, stationName: stationName, direction: direction, dayOfWeekSchedule: dayOfWeekSchedule, timesArray: timesArray)
             stationDetailArray.append(stationDetail)
         }

@@ -22,7 +22,6 @@ class AllSchedulesVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         allSchedules = lines
-//        print(lines)
         favoriteSchedules = favoritedLines
         
         if self.revealViewController() != nil {
@@ -32,7 +31,6 @@ class AllSchedulesVC: UIViewController {
         }
         
         self.revealViewController().rearViewRevealWidth = revealViewControllerWidth
-//        print(allSchedules)
         
     }
     
@@ -62,8 +60,6 @@ extension AllSchedulesVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let schedule = allSchedules[indexPath.row]["directions"] as! [[String:Any]]
         selectedScheduleName = allSchedules[indexPath.row]["name"] as! String
-//        print(schedule)
-            //as! [[String:Any]]
         performSegue(withIdentifier: "AllStationsVC", sender: schedule)
     }
     
