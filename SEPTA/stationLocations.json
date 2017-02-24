@@ -1,0 +1,36 @@
+{
+  "stationLocations":[
+    {
+      "Chestnut Hill East Station" : [
+        {
+          "lat" : 40.081111,
+          "long" : -75.207222
+        }
+      ],
+      "Chestnut Hill West Station" : [
+        {
+          "lat" : 40.076804,
+          "long" : -75.207913
+        }
+      ],
+      "Jefferson Station" : [
+        {
+          "lat" : 39.952500,
+          "long" : -75.158056
+        }
+      ],
+      "Suburban Station" : [
+        {
+          "lat" : 39.954116,
+          "long" : -75.166793
+        }
+      ],
+      "Temple University Station" : [
+        {
+          "lat" : 39.980825,
+          "long" : -75.149579
+        }
+      ]
+    }
+  ]
+}

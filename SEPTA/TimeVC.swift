@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MapKit
 
-class TimeVC: UIViewController {
+class TimeVC: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet var lineNameLabel: UILabel!
     @IBOutlet var directionLabel: UILabel!
@@ -20,12 +21,11 @@ class TimeVC: UIViewController {
     
     var savedStationsDict = [[String:Any]]()
     
-    var currentStation: StationDetail!
+    var closestStation: StationDetail!
     var stationTimes: [String: [String]] = ["weekday":[""],"weekend":[""], "saturday":[""], "sunday":[""], "":[""]]
     
     
     var stationDetailArray = [StationDetail]()
-//    var weekDayStations = [StationDetail]()
     var compiledStations = [StationDetail]()
     
     var stationSchedules = [StationDetail]()
@@ -236,6 +236,20 @@ extension TimeVC {
             savedStationsDict.removeAll()
             savedStationsDict = stationsExist
             checkForSavedStations()
+            
+            let locationManager = CLLocationManager()
+            // Ask for Authorisation from the User.
+            locationManager.requestAlwaysAuthorization()
+            
+            // For use in foreground
+            locationManager.requestWhenInUseAuthorization()
+            
+            if CLLocationManager.locationServicesEnabled() {
+                locationManager.delegate = self
+                locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+                locationManager.startUpdatingLocation()
+            }
+            
             displayCurrentDate()
             displayClosestStation()
         } else if let linesExist = UserDefaults.standard.object(forKey: "selectedLines") as? [[String:Any]] {
@@ -270,12 +284,35 @@ extension TimeVC {
         }
     }
     
-    func findClosestStation(){
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        var locValue:CLLocationCoordinate2D = manager.location!.coordinate
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
+        findClosestStation(myLocation: locValue)
+    }
+    
+    //put this into helper
+//    func getMyCurrentLocation(){
+//        let locationManager = CLLocationManager()
+//        // Ask for Authorisation from the User.
+//        locationManager.requestAlwaysAuthorization()
+//        
+//        // For use in foreground
+//        locationManager.requestWhenInUseAuthorization()
+//        
+//        if CLLocationManager.locationServicesEnabled() {
+//            locationManager.delegate = self
+//            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+//            locationManager.startUpdatingLocation()
+//        }
+//        
+//    }
+    
+    func findClosestStation(myLocation: CLLocationCoordinate2D){
         //returns a StationDetail
     }
     
     func displayClosestStation(){
-        findClosestStation() // returns a detailStation
+       // findClosestStation() // returns a detailStation
         let station = stationDetailArray[0] //temporary
         displayStation(stationName: station.stationName,
                        direction: station.direction,
