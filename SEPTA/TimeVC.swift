@@ -19,16 +19,26 @@ class TimeVC: UIViewController, CLLocationManagerDelegate {
     @IBOutlet var tableView: UITableView!
     @IBOutlet var menuButton: UIBarButtonItem!
     
-    var savedStationsDict = [[String:Any]]()
+    let locationManager = CLLocationManager()
     
+<<<<<<< Updated upstream
     var closestStation: StationDetail!
+=======
+    var myLocation: (longitude: CLLocationDegrees, latitude: CLLocationDegrees)?
+    var savedStationsDict = [[String:Any]]()
+>>>>>>> Stashed changes
     var stationTimes: [String: [String]] = ["weekday":[""],"weekend":[""], "saturday":[""], "sunday":[""], "":[""]]
     
-    
+//    var currentStation: StationDetail!
     var stationDetailArray = [StationDetail]()
+<<<<<<< Updated upstream
     var compiledStations = [StationDetail]()
     
     var stationSchedules = [StationDetail]()
+=======
+    var compiledStations = [StationDetail]() //weekends + weekdays
+    var stationSchedules = [StationDetail]() //directions
+>>>>>>> Stashed changes
     
     var currentDayOfWeek = ""
     
@@ -36,6 +46,8 @@ class TimeVC: UIViewController, CLLocationManagerDelegate {
     var stationDetailIndex = 0
     
     var switchStationMode = false
+    
+    var railLocations = [(stationName: String, longitude: CLLocationDegrees, latitude: CLLocationDegrees)]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -229,7 +241,27 @@ extension TimeVC: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-extension TimeVC {
+extension TimeVC: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
+        myLocation?.latitude = locValue.latitude
+        myLocation?.longitude = locValue.longitude
+    }
+    
+    func requestLocationServices(){
+        // Ask for Authorisation from the User.
+        self.locationManager.requestAlwaysAuthorization()
+        
+        // For use in foreground
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
+    }
     
     func checkForUserDefaults(){
         if let stationsExist = UserDefaults.standard.object(forKey: "stationDetailArray") as? [[String:Any]] {
@@ -251,6 +283,7 @@ extension TimeVC {
             }
             
             displayCurrentDate()
+            requestLocationServices()
             displayClosestStation()
         } else if let linesExist = UserDefaults.standard.object(forKey: "selectedLines") as? [[String:Any]] {
             performSegue(withIdentifier: "StationsVC", sender: linesExist)
